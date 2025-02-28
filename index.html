@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asish Nelapati - Full-stack Developer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fira Code for Some Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Sans for Body and selected headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="logo">
+            <!-- Force Open Sans on header name -->
+            <h1 class="header-title">Asish Nelapati</h1>
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#articles" class="nav-item">Articles</a></li>
+                <li><a href="#contacts" class="nav-item">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="lang-switch">
+            <button class="lang active" data-lang="en">En</button>
+            <button class="lang" data-lang="ge">Ge</button>
+        </div>
+    </header>
+
+    <!-- HERO / INTRO -->
+    <section class="hero">
+        <div class="background-circle-top"></div>
+        <div class="hero-inner">
+            <!-- This row lines up Full-stack on the left and Projects btn on the right -->
+            <div class="hero-first-row">
+                <h2 class="hero-title fullstack-line">Full-stack</h2>
+
+                <!-- The project buttons on the same baseline -->
+                <div class="hero-buttons">
+                    <button class="projects-btn">Projects</button>
+                    <button class="arrow-btn">→</button>
+                </div>
+            </div>
+
+            <!-- "Developer" on its own line, right-aligned Along with subtitile -->
+            <div class="developer-container">
+                <p class="hero-subtitle">
+                    My goal is to <em>write maintainable, clean and understandable code</em>
+                    to make the development process enjoyable.
+                </p>
+                <h2 class="hero-title developer-line">Developer</h2>
+            </div>
+
+            <!-- Social links can remain here or below the subtitle -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank" class="social-button">
+                    <img src="assets/icons/linkedin.png" alt="LinkedIn Logo" class="social-icon" />
+                    <span class="social-text">LinkedIn</span>
+                </a>
+                <a href="https://github.com" target="_blank" class="social-button">
+                    <img src="assets/icons/github.png" alt="GitHub Logo" class="social-icon" />
+                    <span class="social-text">GitHub</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-button">
+                    <img src="assets/icons/instagram.png" alt="Instagram Logo" class="social-icon" />
+                    <span class="social-text">Instagram</span>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-button">
+                    <img src="assets/icons/youtube.png" alt="YouTube Logo" class="social-icon" />
+                    <span class="social-text">YouTube</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Carousel / article cards below -->
+        <div class="carousel-container">
+            <button class="slider-arrow left-arrow">←</button>
+            <div class="carousel-track">
+                <!-- Card #1 -->
+                <div class="carousel-card">
+                    <div class="card-image" style="background-image: url('assets/images/hero-image.jpg');"></div>
+                    <div class="card-overlay">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
+                            Golang and Docker.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <!-- Card #2 -->
+                <div class="carousel-card">
+                    <div class="card-image" style="background-image: url('assets/images/hero-image.jpg');"></div>
+                    <div class="card-overlay">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>Another simple approach to micro-services with Kafka, Golang, Docker.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <!-- Card #3 -->
+                <div class="carousel-card">
+                    <div class="card-image" style="background-image: url('assets/images/hero-image.jpg');"></div>
+                    <div class="card-overlay">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>Another simple approach to micro-services with Kafka, Golang, Docker.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <!-- Card #4 -->
+                <div class="carousel-card">
+                    <div class="card-image" style="background-image: url('assets/images/hero-image.jpg');"></div>
+                    <div class="card-overlay">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>Another simple approach to micro-services with Kafka, Golang, Docker.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <!-- Card #5 -->
+                <div class="carousel-card">
+                    <div class="card-image" style="background-image: url('assets/images/hero-image.jpg');"></div>
+                    <div class="card-overlay">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>Another simple approach to micro-services with Kafka, Golang, Docker.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <!-- Card #6 -->
+                <div class="carousel-card">
+                    <div class="card-image" style="background-image: url('assets/images/hero-image.jpg');"></div>
+                    <div class="card-overlay">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>Another simple approach to micro-services with Kafka, Golang, Docker.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <!-- Card #7 -->
+                <div class="carousel-card">
+                    <div class="card-image" style="background-image: url('assets/images/hero-image.jpg');"></div>
+                    <div class="card-overlay">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>Another simple approach to micro-services with Kafka, Golang, Docker.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <!-- More cards if needed... -->
+            </div>
+            <button class="slider-arrow right-arrow">→</button>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section class="about-me" id="about">
+        <div class="background-circle"></div>
+
+        <div class="about-content">
+            <div class="about-header">
+                <h3 class="section-title">... /About me ...</h3>
+                <div class="intro-text">
+                    <p>Hello! I'm Asish, I'm a <strong>full-stack developer</strong>.</p>
+                    <p>with More than <strong>3 years</strong> of experience.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-container">
+            <div class="skills-layout">
+
+                <div class="skill-card full-width">
+                    <h4>Gen-AI</h4>
+                    <p> OpenAI / Olamma / Agentic workflow / CrewAI / AutoGen / Langchain / Tavus / PyTorch</p>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-card left-half">
+
+                        <h4>Front-end</h4>
+                        <p>JavaScript / TypeScript / React / NextJs / Wordpress </p>
+                    </div>
+                    <!-- GitHub Logo overlapped by an arrow -->
+                    <div class="github-arrow">
+                        <a href="https://github.com/YourGitHubUsername" target="_blank" class="github-link">
+                            <img src="assets/icons/github.png" alt="GitHub Logo" class="github-icon" />
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="skill-card full-width">
+                    <h4>Back-end</h4>
+                    <p> NodeJs / Flask / Golang / Gin / Redis / GraphQL / PostgreSQL / MySQL / MongoDB / Elastic Search
+                        / AWS / Azure / Microservices
+                        / Docker / Heroku
+                    </p>
+                </div>
+
+                <div class="skill-row">
+
+                    <p class="favorite-tech">
+                        These are Some of my favourite technologies, topics or tools I've worked on;
+                    </p>
+
+                    <div class="skill-card right-half">
+                        <h4>Mobile Dev</h4>
+                        <p>Android Studio / SDK / Kotlin / Java / Firebase / Crashlytics / Google Console / GoogleAPI's
+                            / Privacy Policay / HIPAA</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Profile Image on the right (over the background circle) -->
+            <div class="profile-image-container">
+                <img src="assets/images/profile.jpg" alt="Profile" class="profile-image" />
+            </div>
+        </div>
+
+    </section>
+
+    <section class="work-timeline" id="work">
+        <h3 class="section-title">Work</h3>
+
+        <!-- 1) ITHUB -->
+        <div class="timeline-item">
+            <div class="date-range"> Summer 2024 <br>3 months</div>
+            <div class="company-details">
+                <h4>EZ Innovations</h4>
+                <p>Gen-AI developer | React, Flask and Langchain</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="date-range"> 2023 - Present <br>1 year 6 months</div>
+            <div class="company-details">
+                <h4>Penn State University</h4>
+                <p>Graduate Research Assistant | GoLang, NLP, Tableau, Notebook, SLR, Report Writing</p>
+            </div>
+        </div>
+
+        <!-- 2) VK Development Lab -->
+        <div class="timeline-item">
+            <div class="date-range">2022 – 2023<br>1 year</div>
+            <div class="company-details">
+                <h4>MediBuddy</h4>
+                <p>Android Developer | Kotlin, Android</p>
+            </div>
+        </div>
+
+        <!-- 3) SN Inc. -->
+        <div class="timeline-item">
+            <div class="date-range">2021 – 2022<br>7 months</div>
+            <div class="company-details">
+                <h4>Blue Yonder</h4>
+                <p>Backend developer | Node, AWS</p>
+            </div>
+        </div>
+
+        <!-- 4) Business Up -->
+        <div class="timeline-item">
+            <div class="date-range">2021 <br>6 months</div>
+            <div class="company-details">
+                <h4>WILP</h4>
+                <p>Frontend developer | React, JS, RDS</p>
+            </div>
+        </div>
+
+        <!-- Total work experience -->
+        <div class="total-experience">
+            <p>Work experience<br>3 years 7 months</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section" id="projects">
+        <div class="section-title-container">
+            <h3 class="section-title">... /Projects ...</h3>
+        </div>
+
+        <!-- Project 1 - Right layout -->
+        <div class="project-container-right">
+            <div class="background-circle-base background-circle-right-1"></div>
+            <div class="project-info-right">
+                <h2 class="project-title">GOstat</h2>
+                <div class="tech-stack-grid">
+                    <span class="tech-item">Golang</span>
+                    <span class="tech-item">TypeScript</span>
+                    <span class="tech-item">Gin</span>
+                    <span class="tech-item">NextJS</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">Redis</span>
+                </div>
+                <p class="project-description">
+                    GOStat - a cutting-edge microservice-based application designed to handle HTTP request
+                    authentication and statistics with finesse.
+                </p>
+                <div class="project-github">
+                    <a href="#" class="github-link">
+                        <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
+                        <span class="arrow-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+            <div class="project-showcase">
+                <div class="showcase-grid-1">
+                    <div class="showcase-item grid-1-item1">
+                        <img src="assets/images/hero-image.jpg" alt="GOstat main interface">
+                    </div>
+                    <div class="showcase-item grid-1-item2">
+                        <img src="assets/images/hero-image.jpg" alt="GOstat stats">
+                    </div>
+                    <div class="showcase-item grid-1-item3">
+                        <img src="assets/images/hero-image.jpg" alt="GOstat dashboard">
+                    </div>
+                    <div class="showcase-item grid-1-item4">
+                        <img src="assets/images/hero-image.jpg" alt="GOstat metrics">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 - Left layout -->
+        <section class="project-section">
+            <div class="background-circle-base background-circle-left-1"></div>
+            <div class="project-container-left">
+                <div class="project-showcase">
+                    <div class="showcase-grid-2">
+                        <div class="showcase-item grid-2-item1">
+                            <img src="assets/images/hero-image.jpg" alt="Anime Sentry main view">
+                        </div>
+                        <div class="showcase-item grid-2-item3">
+                            <img src="assets/images/hero-image.jpg" alt="Anime Sentry schedule">
+                        </div>
+                        <div class="showcase-item grid-2-item4">
+                            <img src="assets/images/hero-image.jpg" alt="Anime Sentry mobile">
+                        </div>
+                        <div class="showcase-item grid-2-item5">
+                            <img src="assets/images/hero-image.jpg" alt="Anime Sentry dashboard">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info-left">
+                    <h2 class="project-title">Anime Sentry</h2>
+                    <div class="tech-stack-grid">
+                        <span class="tech-item">Golang</span>
+                        <span class="tech-item">GORM</span>
+                        <span class="tech-item">PostgreSQL</span>
+                        <span class="tech-item">i18n</span>
+                        <span class="tech-item">goquery</span>
+                        <span class="tech-item">gocron</span>
+                    </div>
+                    <p class="project-description">
+                        A sophisticated anime tracking system that helps fans stay updated with their favorite shows.
+                        Features automated notifications, release schedules, and multi-language support.
+                        Built with performance and reliability in mind using Go's concurrency features.
+                    </p>
+                    <div class="project-github">
+                        <a href="https://github.com/yourusername/anime-sentry" target="_blank" class="github-link">
+                            <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
+                            <span class="arrow-icon">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 3 - Right layout -->
+        <section class="project-section">
+            <div class="background-circle-base background-circle-right-2"></div>
+            <div class="project-container-right">
+                <div class="project-info-right">
+                    <h2 class="project-title">DevFlow</h2>
+                    <div class="tech-stack-grid">
+                        <span class="tech-item">Vue.js</span>
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Django</span>
+                        <span class="tech-item">Celery</span>
+                        <span class="tech-item">Redis</span>
+                        <span class="tech-item">Docker</span>
+                    </div>
+                    <p class="project-description">
+                        A developer productivity suite that streamlines workflow automation and task management.
+                        Features include CI/CD pipeline visualization, automated code review suggestions, and
+                        real-time collaboration tools. Built with scalability and extensibility in mind.
+                    </p>
+                    <div class="project-github">
+                        <a href="https://github.com/yourusername/devflow" target="_blank" class="github-link">
+                            <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
+                            <span class="arrow-icon">↗</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-showcase">
+                    <div class="showcase-grid-3">
+                        <div class="showcase-item grid-3-item1">
+                            <img src="assets/images/hero-image.jpg" alt="DevFlow dashboard">
+                        </div>
+                        <div class="showcase-item grid-3-item2">
+                            <img src="assets/images/hero-image.jpg" alt="DevFlow pipeline">
+                        </div>
+                        <div class="showcase-item grid-3-item3">
+                            <img src="assets/images/hero-image.jpg" alt="DevFlow analytics">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 4 - Left layout -->
+        <section class="project-section">
+            <div class="background-circle-base background-circle-left-2"></div>
+            <div class="project-container-left">
+                <div class="project-showcase">
+                    <div class="showcase-grid-4">
+                        <div class="showcase-item grid-4-item1">
+                            <img src="assets/images/hero-image.jpg" alt="EcoTrack main dashboard">
+                        </div>
+                        <div class="showcase-item grid-4-item2">
+                            <img src="assets/images/hero-image.jpg" alt="EcoTrack metrics">
+                        </div>
+                        <div class="showcase-item grid-4-item3">
+                            <img src="assets/images/hero-image.jpg" alt="EcoTrack reports">
+                        </div>
+                        <div class="showcase-item grid-4-item4">
+                            <img src="assets/images/hero-image.jpg" alt="EcoTrack mobile">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info-left">
+                    <h2 class="project-title">EcoTrack</h2>
+                    <div class="tech-stack-grid">
+                        <span class="tech-item">Angular</span>
+                        <span class="tech-item">Firebase</span>
+                        <span class="tech-item">TypeScript</span>
+                        <span class="tech-item">RxJS</span>
+                        <span class="tech-item">D3.js</span>
+                        <span class="tech-item">PWA</span>
+                    </div>
+                    <p class="project-description">
+                        An environmental impact tracking platform that helps organizations monitor and reduce their
+                        carbon footprint.
+                        Features real-time data visualization, predictive analytics, and customizable reporting tools.
+                        Built as a Progressive Web App for cross-platform accessibility.
+                    </p>
+                    <div class="project-github">
+                        <a href="https://github.com/yourusername/ecotrack" target="_blank" class="github-link">
+                            <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
+                            <span class="arrow-icon">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section" id="articles">
+        <h2 class="section-title">Articles</h2>
+
+        <div class="articles-container">
+            <div class="page-numbers">
+                <div class="page-number active">1</div>
+                <div class="page-number">2</div>
+                <div class="nav-arrow down-arrow">↓</div>
+                <div class="nav-arrow up-arrow hidden">↑</div>
+            </div>
+
+            <div class="articles-grid">
+                <!-- Page 1 -->
+                <div class="article-card" data-page="1">
+                    <div class="article-content">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
+                            Golang and Docker.</p>
+                        <div class="article-footer">
+                            <!-- Arrow immediately to the right of "Read more" -->
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" data-page="1">
+                    <div class="article-content">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
+                            Golang and Docker.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" data-page="1">
+                    <div class="article-content">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
+                            Golang and Docker.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" data-page="1">
+                    <div class="article-content">
+                        <h3>The simplest example is kafka + golang</h3>
+                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
+                            Golang and Docker.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 2 -->
+                <div class="article-card" data-page="2">
+                    <div class="article-content">
+                        <h3>AI Stock Investment Advisor</h3>
+                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
+                            Golang and Docker.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" data-page="2">
+                    <div class="article-content">
+                        <h3>AI Stock Investment Advisor</h3>
+                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
+                            Golang and Docker.</p>
+                        <div class="article-footer">
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section class="contacts-section" id="contacts">
+        <div class="contacts-wrapper">
+            <div class="name-title-container">
+                <h2 class="name-line">Asish</h2>
+                <h2 class="title-line">
+                    <span class="role-text">
+                        <span class="role-line">Full-stack</span>
+                        <span class="role-line">Developer</span>
+                    </span> Nelapati
+                </h2>
+            </div>
+
+            <div class="contacts-info">
+                <h3 class="section-title">... /Contacts ...</h3>
+
+                <!-- Horizontal nav menu -->
+                <nav class="contacts-nav">
+                    <ul>
+                        <li><a href="#about" class="nav-item">About</a></li>
+                        <li><a href="#projects" class="nav-item">Projects</a></li>
+                        <li><a href="#articles" class="nav-item">Articles</a></li>
+                        <li><a href="#contacts" class="nav-item">Contacts</a></li>
+                    </ul>
+                </nav>
+
+                <!-- About this site block with large corner radius -->
+                <div class="about-site-tile">
+                    <h4>About This Site</h4>
+                    <div class="site-info">
+                        <p>Handcrafted by Myself</p>
+                        <p>Simple Website built on HTML/ CSS & JS</p>
+                        <p>Hosted on Github</p>
+                        <br>
+                        <p>Designed by Taisia /</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social media links in a single line, left aligned -->
+        <div class="contacts-social">
+            <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank" class="social-button">
+                    <img src="assets/icons/linkedin.png" alt="LinkedIn Logo" class="social-icon" />
+                    <span class="social-text">LinkedIn</span>
+                </a>
+                <a href="https://github.com" target="_blank" class="social-button">
+                    <img src="assets/icons/github.png" alt="GitHub Logo" class="social-icon" />
+                    <span class="social-text">GitHub</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-button">
+                    <img src="assets/icons/instagram.png" alt="Instagram Logo" class="social-icon" />
+                    <span class="social-text">Instagram</span>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-button">
+                    <img src="assets/icons/youtube.png" alt="YouTube Logo" class="social-icon" />
+                    <span class="social-text">YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>

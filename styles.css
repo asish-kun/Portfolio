@@ -1,0 +1,1547 @@
+/* -------------------------------------
+   COLOR VARIABLES
+-------------------------------------- */
+:root {
+    --color-black: #121212;
+    --color-white: #F5F5F5;
+    --color-light-grey: #A6A6A6;
+    --color-dark-grey: #3D3D3D;
+}
+
+/* -------------------------------------
+   RESET & GLOBAL
+-------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: var(--color-black);
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-white);
+    overflow-x: hidden;
+    overflow: auto;
+    /* Prevent horizontal scroll */
+}
+
+/* Default heading style: Fira Code for large headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Fira Code', monospace;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--color-white);
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+
+/* -------------------------------------
+   HEADER
+-------------------------------------- */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--color-black);
+    z-index: 100;
+}
+
+/* Override the logo heading to use Open Sans instead of Fira Code */
+.logo h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 200;
+    /* or 300 for extra light */
+}
+
+/* Nav */
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-white);
+    font-size: 0.90rem;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+    /* or 300 */
+}
+
+/* Language Switch */
+.lang-switch {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.lang {
+    background: none;
+    border: 1px solid var(--color-white);
+    padding: 0.3rem 0.8rem;
+    color: var(--color-white);
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    transition: background 0.3s ease;
+}
+
+.lang:hover {
+    background: var(--color-dark-grey);
+}
+
+.lang.active {
+    background: var(--color-white);
+    color: var(--color-black);
+}
+
+/****************************************
+  HERO STYLES
+****************************************/
+.hero {
+    /* Position hero at the very top */
+    position: relative;
+    padding-top: 6rem;
+
+    /* Keep full viewport height */
+    min-height: 100vh;
+
+    /* Give some extra padding to account for the header and let elements "breathe" */
+    padding: 6rem 0 4rem;
+    /* Removed horizontal padding as it will be handled by hero-inner */
+
+    /* Center everything vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 0;
+}
+
+.hero-inner {
+    width: 100%;
+    padding: 0 6rem;
+    /* Added horizontal padding for content */
+    margin: 0 auto;
+}
+
+/* 
+    This row lines up:
+      Full-stack (left)
+      Projects + arrow (right)
+  */
+.hero-first-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    margin-top: 6rem;
+    width: 100%;
+    /* Ensure full width */
+}
+
+.fullstack-line {
+    margin-top: 6rem;
+    font-size: 9rem;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.developer-container {
+    display: flex;
+    justify-content: space-between;
+    /* Pushes elements to opposite ends */
+    align-items: flex-end;
+    /* Aligns items at the bottom */
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+    /* Keep original margin from developer-line */
+}
+
+.developer-line {
+    font-size: 9rem;
+    line-height: 1.1;
+    margin: 0;
+    /* Remove original margin */
+    /* text-align: right; Remove this property */
+}
+
+.hero-subtitle {
+    max-width: 600px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    color: var(--color-light-grey);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 4rem 0 0;
+    /* Add right margin for spacing */
+    padding-bottom: 0.5rem;
+    /* Optional: align text baseline */
+}
+
+/* Project Buttons */
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.projects-btn {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0.9rem 1.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 24px;
+    /* pill shape */
+    transition: opacity 0.3s ease;
+}
+
+.projects-btn:hover {
+    opacity: 0.7;
+}
+
+.arrow-btn {
+    border: 2px solid var(--color-white);
+    background: none;
+    color: var(--color-white);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background: var(--color-dark-grey);
+}
+
+.hero-subtitle em {
+    color: var(--color-white);
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Social links */
+.social-links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin: 4rem 0 4rem;
+    align-self: center;
+    align-items: center;
+}
+
+/* Individual button with icon + text */
+.social-button {
+    display: inline-flex;
+    /* inline-flex so they line up horizontally */
+    align-items: center;
+    gap: 0.6rem;
+    /* space between icon & text */
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-dark-grey);
+    border-radius: 9999px;
+    /* large radius -> pill shape */
+    background: none;
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect */
+.social-button:hover {
+    background: var(--color-dark-grey);
+}
+
+/* Icon image styling */
+.social-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    /* ensures the icon scales nicely */
+}
+
+/* Optional: style the text differently (italic, smaller, etc.) */
+.social-text {
+    font-style: italic;
+    /* if you want that italic look */
+    font-size: 0.9rem;
+    color: var(--color-white);
+}
+
+/* 
+    Responsive adjustments
+  */
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero-first-row {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .fullstack-line,
+    .developer-line {
+        font-size: 2.5rem;
+        text-align: left;
+    }
+
+    .hero-buttons {
+        margin-top: 0.5rem;
+    }
+
+    .developer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .developer-line {
+        font-size: 2.5rem;
+        order: -1;
+        /* Move "Developer" above subtitle on mobile */
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        margin-right: 0;
+    }
+
+    .social-links {
+        gap: 0.5rem;
+        padding: 0;
+    }
+
+    .social-button {
+        padding: 0.5rem 1rem;
+        flex: none;
+        /* Prevent shrinking on mobile */
+    }
+
+    .social-text {
+        display: none;
+        /* Optional: hide text on mobile */
+    }
+
+    .social-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/****************************************
+  CAROUSEL
+****************************************/
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 90vw;
+    margin: 0 4rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    overflow: visible;
+    -webkit-overflow-scrolling: touch;
+    /* smooth scroll on iOS */
+}
+
+/* Left & right arrow buttons */
+.slider-arrow {
+    background: none;
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex-shrink: 0;
+    z-index: 2;
+    margin: 0 0.5rem;
+}
+
+.slider-arrow:hover {
+    background: var(--color-dark-grey);
+}
+
+.left-arrow {
+    order: 0;
+}
+
+.right-arrow {
+    order: 2;
+}
+
+/* The scrolling track that holds the cards */
+.carousel-track {
+    order: 1;
+    flex: 1;
+    /* let it grow in the middle */
+    display: flex;
+    gap: 2rem;
+    /* spacing between cards */
+    overflow-x: auto;
+    /* horizontal scroll */
+    /* The key piece: padding left/right so the center card is fully in view, 
+       and the neighboring cards are partially visible */
+    padding: 0 25%;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Each card is half the container width, centered on scroll */
+.carousel-card {
+    flex: 0 0 100%;
+    height: 35vh;
+    width: 35vw;
+    scroll-snap-align: center;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-dark-grey);
+    transition: transform 0.3s;
+}
+
+.carousel-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Show the image *under* the entire card */
+.card-image {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Then fade (or entirely cover) the right side */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    /* half the card for the overlay, or 40% if you like */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* or a gradient */
+    padding: 2rem;
+    /* push text away from edges */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-white);
+    border-top-right-radius: 30px;
+    /* match your card corner radius */
+    border-bottom-right-radius: 30px;
+}
+
+/* Text in overlay */
+.card-overlay h3 {
+    font-size: 1.4rem;
+    /* bigger headline */
+    margin-bottom: 1rem;
+    font-family: 'Fira Code', monospace;
+    /* or keep the font you prefer */
+}
+
+.card-overlay p {
+    font-size: 1rem;
+    color: var(--color-light-grey);
+    margin-bottom: 1.25rem;
+}
+
+.read-more {
+    display: inline-block;
+    /* so padding/border works neatly */
+    padding: 0.8rem 1.2rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    border-radius: 24px;
+    /* pill shape or bigger if you want */
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.read-more:hover {
+    opacity: 0.7;
+}
+
+
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    .carousel-card {
+        flex: 0 0 80%;
+        /* narrower so the user can see next/prev cards on small screens */
+        height: 300px;
+        /* smaller height */
+    }
+
+    .card-overlay {
+        width: 60%;
+        /* or 70% if you want more text space on mobile */
+        padding: 1rem;
+    }
+
+    .card-overlay h3 {
+        font-size: 1rem;
+    }
+
+    .card-overlay p {
+        font-size: 0.85rem;
+    }
+}
+
+/*************************************
+  ABOUT ME & BACKGROUND CIRCLE
+**************************************/
+.about-me {
+    position: relative;
+    padding: 4rem 2rem;
+    margin: 0 1vh;
+    margin-left: 4vh;
+}
+
+/* Circle behind everything */
+.background-circle-top {
+    position: absolute;
+    top: -12vh;
+    /* adjust as needed */
+    right: -14vh;
+    width: 32vh;
+    height: 32vh;
+    background: var(--color-transparent);
+    border: 2px solid #A6A6A6;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Circle behind everything */
+.background-circle {
+    position: absolute;
+    top: -6vh;
+    /* adjust as needed */
+    right: -14vh;
+    width: 52vh;
+    height: 52vh;
+    background: var(--color-transparent);
+    border: 2px solid #A6A6A6;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Wrap all about content */
+.about-container {
+    position: relative;
+    z-index: 1;
+    /* ensure content is above the circle */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* 2/3 for content, 1/3 for image */
+    gap: 2rem;
+    align-items: start;
+    margin-top: 8rem;
+}
+
+/* Left side content wrapper */
+.about-content {
+    width: 100%;
+}
+
+/* Title: /About me... on the left, Hello! on the right */
+.about-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-right: 25vh;
+}
+
+.section-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.2rem;
+    color: var(--color-light-grey);
+    margin: 0 auto;
+    /* remove default margin */
+}
+
+.intro-text p {
+    margin: 0;
+    /* or some small margin if you want spacing */
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Skills: each skill row will get a custom width class to achieve the layout */
+.skills-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 12rem;
+}
+
+/* Reuse your existing skill-card style */
+.skill-card {
+    border: 1px solid var(--color-white);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.skill-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Fira Code', monospace;
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-black);
+}
+
+.skill-card:hover h4 {
+    color: var(--color-black);
+}
+
+/* For the 1st & 3rd skill card: full row width */
+.full-width {
+    width: 100%;
+}
+
+/* For the 2nd skill card: left 50% only */
+.left-half {
+    width: 50%;
+    margin-right: 0;
+}
+
+/* For the 4th skill card: right 50% only */
+.right-half {
+    width: 50%;
+    margin-left: 0;
+}
+
+/* Row containing DevOps card and GitHub logo */
+.skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* GitHub logo styling */
+.github-arrow {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.github-link {
+    position: relative;
+    display: inline-block;
+}
+
+.github-icon {
+    width: 56px;
+    height: 56px;
+}
+
+/* "Favorite tech" line after skills */
+.favorite-tech {
+    width: 50%;
+    margin: 0;
+    color: var(--color-light-grey);
+    font-style: italic;
+}
+
+/* Profile image container */
+.profile-image-container {
+    position: sticky;
+    top: 100px;
+    /* Adjust this value based on your header height */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: fit-content;
+}
+
+.profile-image {
+    max-width: 45vh;
+    border-radius: 10%;
+    border: 3px solid var(--color-white);
+}
+
+/****************************************
+    GITHUB LOGO + ARROW OVERLAP
+  ****************************************/
+.github-arrow {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.github-link {
+    position: relative;
+    display: inline-block;
+}
+
+.github-icon {
+    width: 56px;
+    height: 56px;
+}
+
+/* arrow on top of the icon */
+.arrow-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-black);
+    background: var(--color-white);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    pointer-events: none;
+    /* ensures clicks go to the GH link */
+}
+
+/*************************************
+    RESPONSIVE
+  **************************************/
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
+        gap: 3rem;
+    }
+
+    .profile-image-container {
+        position: static;
+        margin-top: 4rem;
+    }
+
+    .about-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    /* Make skill cards stack more neatly on mobile */
+    .left-half,
+    .right-half,
+    .full-width {
+        width: 100%;
+        margin: 0;
+    }
+
+    .skill-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .right-half,
+    .github-arrow,
+    .favorite-tech {
+        width: 100%;
+        margin: 0;
+    }
+
+    .github-arrow {
+        justify-content: flex-start;
+    }
+}
+
+
+
+/* -------------------------------------
+   WORK / TIMELINE SECTION
+-------------------------------------- */
+.work-timeline {
+    position: relative;
+    padding: 4rem 2rem;
+    width: 100%;
+    background-color: var(--color-black);
+}
+
+.work-timeline .section-title {
+    font-size: 5rem;
+    margin-bottom: 0.5rem;
+    margin-right: 2rem;
+    text-align: right;
+    font-family: 'Fira Code', monospace;
+    color: var(--color-white);
+}
+
+.work-timeline .timeline-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Make the item highlight when hovered */
+.work-timeline .timeline-item:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.work-timeline .timeline-item:hover h4,
+.work-timeline .timeline-item:hover p {
+    color: var(--color-black);
+}
+
+/* Date on the left */
+.date-range {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--color-light-grey);
+}
+
+/* Company + role on the right */
+.company-details h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--color-white);
+    transition: color 0.3s ease;
+}
+
+.company-details p {
+    font-size: 1rem;
+    color: var(--color-light-grey);
+    transition: color 0.3s ease;
+}
+
+/* "Work experience 4y9m" block in the bottom-right */
+.total-experience {
+    margin-top: 2rem;
+    text-align: right;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--color-light-grey);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .work-timeline .section-title {
+        font-size: 2.5rem;
+    }
+
+    .work-timeline .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .date-range {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* -------------------------------------
+   PROJECTS SECTION
+-------------------------------------- */
+
+/* Project section variations */
+.project-section {
+    position: relative;
+    margin-top: 4rem;
+    padding: 8rem 4rem;
+    min-height: 70vh;
+    background-color: var(--color-black);
+    overflow: hidden;
+    /* Ensure circles don't create horizontal scroll */
+}
+
+/* Section title container */
+.section-title-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    /* Add vertical spacing before the title */
+}
+
+.section-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.2rem;
+    color: var(--color-light-grey);
+    margin: 0;
+}
+
+/* Project container variations */
+.project-container-right,
+.project-container-left {
+    position: relative;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.project-container-left {
+    grid-template-columns: 70% 30%;
+}
+
+/* Base circle styles */
+.background-circle-base {
+    position: absolute;
+    width: 80vh;
+    height: 80vh;
+    background: transparent;
+    border: 2px solid #A6A6A6;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    top: 50%;
+    /* Center vertically */
+    transform: translateY(-50%);
+    /* Offset by half height */
+}
+
+/* Circle positions for different projects */
+.background-circle-right-1 {
+    right: -40vh;
+    /* Adjust to partially show circle */
+}
+
+.background-circle-right-2 {
+    right: -40vh;
+}
+
+.background-circle-left-1 {
+    left: -40vh;
+    width: 100vh;
+    /* Larger circle */
+    height: 90vh;
+}
+
+.background-circle-left-2 {
+    left: -40vh;
+}
+
+/* Project Info Side - Consistent styling for all projects */
+.project-info-right,
+.project-info-left {
+    padding: 2rem;
+}
+
+.project-title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Fira Code', monospace;
+    color: var(--color-white);
+}
+
+.tech-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tech-item {
+    background: var(--color-black);
+    border: 1px solid var(--color-white);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+}
+
+.project-description {
+    color: var(--color-light-grey);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.project-github {
+    margin-top: auto;
+}
+
+.project-github .github-link {
+    display: inline-block;
+    position: relative;
+}
+
+.project-github .github-icon {
+    width: 56px;
+    height: 56px;
+}
+
+.project-github .arrow-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-white);
+    color: var(--color-black);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Showcase grid variations */
+.showcase-grid-1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    aspect-ratio: 6/4;
+}
+
+.showcase-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1.5rem;
+    aspect-ratio: 1/1;
+}
+
+.showcase-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+    aspect-ratio: 16/9;
+}
+
+.showcase-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.2rem;
+    aspect-ratio: 4/3;
+}
+
+/* Grid item variations for each showcase */
+/* Grid 1 - Original layout */
+.grid-1-item1 {
+    grid-area: 1 / 1 / 4 / 4;
+}
+
+.grid-1-item2 {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.grid-1-item3 {
+    grid-area: 2 / 4 / 4 / 5;
+}
+
+.grid-1-item4 {
+    grid-area: 4 / 2 / 5 / 4;
+}
+
+/* Grid 2 - Anime Sentry inspired */
+.grid-2-item1 {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.grid-2-item2 {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+.grid-2-item3 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.grid-2-item4 {
+    grid-area: 2 / 3 / 4 / 4;
+}
+
+.grid-2-item5 {
+    grid-area: 3 / 1 / 4 / 3;
+}
+
+/* Grid 3 - Similar to Grid 1 but mirrored */
+.grid-3-item1 {
+    grid-area: 1 / 1 / 4 / 4;
+}
+
+.grid-3-item2 {
+    grid-area: 1 / 4 / 2 / 6;
+}
+
+.grid-3-item3 {
+    grid-area: 2 / 4 / 4 / 6;
+}
+
+/* Grid 4 - Kana Master inspired */
+.grid-4-item1 {
+    grid-area: 1 / 1 / 3 / 3;
+}
+
+.grid-4-item2 {
+    grid-area: 1 / 3 / 2 / 5;
+}
+
+.grid-4-item3 {
+    grid-area: 2 / 3 / 4 / 5;
+}
+
+.grid-4-item4 {
+    grid-area: 3 / 1 / 4 / 3;
+}
+
+/* Showcase item base styles */
+.showcase-item {
+    background: var(--color-white);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.showcase-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.showcase-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .project-title {
+        font-size: 2.5rem;
+    }
+
+    .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .showcase-grid-1,
+    .showcase-grid-2,
+    .showcase-grid-3,
+    .showcase-grid-4 {
+        gap: 0.8rem;
+    }
+
+    .project-section {
+        padding: 4rem 1rem;
+    }
+
+    .project-info-right,
+    .project-info-left {
+        padding: 1rem;
+    }
+}
+
+/* -------------------------------------
+   RESPONSIVE ADJUSTMENTS
+-------------------------------------- */
+@media (max-width: 768px) {
+
+    .fullstack-line,
+    .developer-line {
+        font-size: 2.5rem;
+        text-align: left;
+        /* Both left on mobile, or adjust as needed */
+    }
+
+    .hero-buttons {
+        position: static;
+        transform: none;
+        margin: 1rem 0;
+    }
+
+    .hero-title-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .left-title,
+    .right-title {
+        font-size: 2rem;
+        margin-right: 0;
+    }
+
+    .subtitle {
+        position: static;
+        margin-top: 0.5rem;
+    }
+
+    .article-cards {
+        padding: 1rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+    }
+}
+
+/****************************************
+  ARTICLES SECTION
+****************************************/
+.articles-section {
+    padding: 4rem 2rem;
+    background-color: var(--color-black);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Center arrow at the top of the articles grid */
+.articles-top-arrow {
+    position: absolute;
+    top: 7rem;
+    /* adjust to taste so it appears under "Articles" title */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: var(--color-white);
+}
+
+.articles-section .section-title {
+    font-size: 5rem;
+    text-align: right;
+    color: var(--color-white);
+    margin-right: 4rem;
+    margin-bottom: 4rem;
+    font-family: 'Fira Code', monospace;
+}
+
+.articles-container {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+}
+
+/* Page numbers navigation */
+.page-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+.page-number {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fira Code', monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-number:hover,
+.page-number.active {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.nav-arrow {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.nav-arrow.hidden {
+    display: none;
+}
+
+/* Articles grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    flex: 1;
+}
+
+.article-card {
+    background-color: var(--color-dark-grey);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: 'Fira Code', monospace;
+}
+
+.article-content p {
+    color: var(--color-light-grey);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.article-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .articles-section .section-title {
+        font-size: 3rem;
+        margin-right: 2rem;
+    }
+
+    .articles-container {
+        flex-direction: column;
+    }
+
+    .page-numbers {
+        flex-direction: row;
+        justify-content: center;
+        position: static;
+        margin-bottom: 2rem;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* -------------------------------------
+     CONTACTS SECTION
+  -------------------------------------- */
+.contacts-section {
+    padding: 0rem 4rem;
+    padding-top: 6rem;
+    position: relative;
+}
+
+.contacts-wrapper {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 4rem;
+}
+
+.name-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align items to the left */
+    max-width: 100%;
+    /* Ensure it doesn't overflow the viewport */
+}
+
+.name-line {
+    font-size: 9rem;
+    line-height: 1.1;
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    /* Remove default margin */
+}
+
+.title-line {
+    font-size: 9rem;
+    line-height: 1.1;
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    /* Remove default margin */
+    display: flex;
+    align-items: baseline;
+    /* Align text baselines */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+}
+
+.role-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    color: var(--color-light-grey);
+    margin-right: 2rem;
+    text-align: left;
+    align-self: center;
+    /* Ensure text aligns properly */
+}
+
+.role-line {
+    white-space: nowrap;
+    margin-bottom: 0.2rem;
+    /* Prevents breaking in unintended places */
+}
+
+.contacts-info {
+    padding-top: 2rem;
+}
+
+/* Make the nav items display in one horizontal row */
+.contacts-nav ul {
+    list-style: none;
+    display: flex;
+    /* horizontal */
+    gap: 2rem;
+    /* space between items */
+    margin-bottom: 2rem;
+    padding: 0;
+    /* remove default padding if needed */
+}
+
+.contacts-nav a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--color-light-grey);
+    transition: color 0.3s;
+}
+
+.contacts-nav a:hover,
+.contacts-nav a.active {
+    color: var(--color-white);
+}
+
+/* "About This Site" tile with 4rem corner radius */
+.about-site-tile {
+    border: 1px solid var(--color-light-grey);
+    border-radius: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-site-tile h4 {
+    margin-bottom: 1.5rem;
+    font-family: 'Fira Code', monospace;
+    color: var(--color-white);
+}
+
+.site-info p {
+    color: var(--color-light-grey);
+    line-height: 1.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+
+    .name-line,
+    .title-line {
+        font-size: 6rem;
+    }
+
+    .contacts-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .role-text {
+        font-size: 4rem;
+        /* Smaller font size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-section .section-title {
+        font-size: 3rem;
+        margin-right: 2rem;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .name-line,
+    .title-line {
+        font-size: 4rem;
+    }
+
+    .title-line {
+        margin-left: 2rem;
+    }
+
+    .role-text {
+        font-size: 1.2rem;
+        /* Smaller font size for mobile */
+    }
+
+}
+
+section[id] {
+    scroll-margin-top: 80px;
+    /* Adjust based on your header's actual height */
+}
