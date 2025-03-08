@@ -286,3 +286,96 @@ const ScrollManager = {
 // Initialize the scroll manager
 ScrollManager.init();
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Select ALL project images, including the first project
+    const projectImages = document.querySelectorAll('.showcase-item img');
+    const viewer = document.getElementById('imageViewer');
+    const fullscreenImg = viewer.querySelector('.fullscreen-image');
+    const closeBtn = viewer.querySelector('.viewer-close-btn');
+    const prevArrow = viewer.querySelector('.prev-arrow');
+    const nextArrow = viewer.querySelector('.next-arrow');
+
+    let currentImageIndex = 0;
+    let currentProjectImages = [];
+
+    // Add click listeners to all project images
+    projectImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+            // Find all images in the current project's showcase
+            const projectSection = e.target.closest('.project-container-right, .project-container-left');
+            currentProjectImages = Array.from(projectSection.querySelectorAll('.showcase-item img'));
+            currentImageIndex = currentProjectImages.indexOf(e.target);
+
+            openImageViewer(e.target.src);
+        });
+    });
+
+    function openImageViewer(src) {
+        fullscreenImg.src = src;
+        viewer.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageViewer() {
+        viewer.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function navigate(direction) {
+        currentImageIndex = (currentImageIndex + direction + currentProjectImages.length) % currentProjectImages.length;
+        fullscreenImg.src = currentProjectImages[currentImageIndex].src;
+    }
+
+    // Event Listeners
+    closeBtn.addEventListener('click', closeImageViewer);
+    viewer.addEventListener('click', (e) => {
+        if (e.target === viewer) closeImageViewer();
+    });
+
+    prevArrow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigate(-1);
+    });
+
+    nextArrow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigate(1);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keyup', (e) => {
+        if (viewer.style.display === 'flex') {
+            if (e.key === 'Escape') closeImageViewer();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Select both nav links and the projects button
+    const navLinks = document.querySelectorAll('.nav-links a, .projects-btn, .arrow-btn');
+    const header = document.querySelector('.main-header');
+    const headerHeight = header ? header.offsetHeight : 0;
+
+    // Add scroll-margin-top to all sections to account for header
+    document.querySelectorAll('section[id]').forEach(section => {
+        section.style.scrollMarginTop = `${headerHeight}px`;
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Get target ID from href for nav links or data-target for button
+            const targetId = this.getAttribute('href') || this.dataset.target;
+            if (!targetId) return;
+
+            const targetSection = document.getElementById(targetId.substring(1));
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
