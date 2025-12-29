@@ -19,6 +19,17 @@
 </head>
 
 <body>
+    <!-- Dynamic Background Circles -->
+    <div class="dynamic-circles-container">
+        <div class="dynamic-circle circle-1"></div>
+        <div class="dynamic-circle circle-2"></div>
+        <div class="dynamic-circle circle-3"></div>
+        <div class="dynamic-circle circle-4"></div>
+        <div class="dynamic-circle circle-5"></div>
+    </div>
+
+    <!-- Grain Overlay for Modern Texture -->
+    <div class="grain-overlay"></div>
 
     <!-- HEADER -->
     <header class="main-header">
@@ -90,7 +101,18 @@
             <button class="slider-arrow left-arrow">←</button>
             <div class="carousel-track">
 
-                <!-- Card #1 -->
+                <!-- Card #1 - Kaana -->
+                <div class="carousel-card kaana-card">
+                    <div class="card-image"
+                        style="background-image: url('assets/images/Kaana/Kaana_Hero.png');"></div>
+                    <div class="card-overlay kaana-overlay">
+                        <h3>Kaana</h3>
+                        <p>Video-first food discovery platform with AI-powered semantic search, HLS streaming, and personalized feeds. Built as Founding Engineer.</p>
+                        <a href="#kaana-project" class="read-more">Read more →</a>
+                    </div>
+                </div>
+
+                <!-- Card #2 -->
                 <div class="carousel-card">
                     <div class="card-image"
                         style="background-image: url('assets/images/AI-Marekting\ Tool/Group 1.png');"></div>
@@ -153,16 +175,14 @@
 
                 <!-- Card #6 -->
                 <div class="carousel-card">
-                    <div class="carousel-card">
-                        <div class="card-image"
-                            style="background-image: url('assets/images/AI-Stock\ Advisor/Portfolio Management Screen.png');">
-                        </div>
-                        <div class="card-overlay">
-                            <h3>AI Advisor Portfolio</h3>
-                            <p>personal investment portfolio. Built with robustness and performance in mind using Nvidia
-                                NIM financila model.</p>
-                            <a href="#" class="read-more">Read more →</a>
-                        </div>
+                    <div class="card-image"
+                        style="background-image: url('assets/images/AI-Stock\ Advisor/Portfolio Management Screen.png');">
+                    </div>
+                    <div class="card-overlay">
+                        <h3>AI Advisor Portfolio</h3>
+                        <p>personal investment portfolio. Built with robustness and performance in mind using Nvidia
+                            NIM financila model.</p>
+                        <a href="#" class="read-more">Read more →</a>
                     </div>
                 </div>
 
@@ -192,9 +212,8 @@
             <div class="about-header">
                 <h3 class="section-title">... /About me ...</h3>
                 <div class="intro-text">
-                    <p>Hello! I'm Asish, I'm a <strong>full-stack developer</strong>.</p>
-                    <p>with More than <strong>3 years</strong> of experience building AI-integrated systems &
-                        Distributed Systems at Scale</p>
+                    <p>Hello! I'm Asish, a <strong>full-stack developer</strong> and <strong>Founding Engineer</strong>.</p>
+                    <p>With <strong>4+ years</strong> of experience building AI-integrated systems, video-first platforms, and distributed systems at scale. I specialize in transforming product visions into high-performance applications with cutting-edge technology.</p>
                 </div>
             </div>
         </div>
@@ -262,7 +281,19 @@
     <section class="work-timeline" id="work">
         <h3 class="section-title">Work</h3>
 
-        <!-- 1) ITHUB -->
+        <!-- 1) Kaana - Latest -->
+        <div class="timeline-item kaana-highlight">
+            <div class="date-range"> 2024 - Present <br>6+ months</div>
+            <div class="company-details">
+                <div class="kaana-header-with-icon">
+                    <img src="assets/images/Kaana/Kaana_icon.png" alt="Kaana Icon" class="kaana-work-icon">
+                    <h4>Kaana</h4>
+                </div>
+                <p>Founding Engineer | React Native, NextJS, Flask, EC2, S3, PostgreSQL, Redis, Expo, PostHog</p>
+            </div>
+        </div>
+
+        <!-- 2) EZ Innovations -->
         <div class="timeline-item">
             <div class="date-range"> Summer 2024 <br>3 months</div>
             <div class="company-details">
@@ -272,7 +303,7 @@
         </div>
 
         <div class="timeline-item">
-            <div class="date-range"> 2023 - Present <br>1 year 6 months</div>
+            <div class="date-range"> 2023 - 2024 <br>1 year 6 months</div>
             <div class="company-details">
                 <h4>Penn State University</h4>
                 <p>Graduate Research Assistant | ReactJS, Django, keyBERT, Docker, Tableau, Colab, Research Study
@@ -309,7 +340,7 @@
 
         <!-- Total work experience -->
         <div class="total-experience">
-            <p>Work experience<br>3 years 7 months</p>
+            <p>Work experience<br>4+ years</p>
         </div>
     </section>
 
@@ -318,6 +349,91 @@
         <div class="section-title-container">
             <h3 class="section-title">... /Projects ...</h3>
         </div>
+
+        <!-- Project 0 - Kaana (Featured) -->
+        <section class="project-section kaana-project-section" id="kaana-project">
+            <div class="background-circle-base background-circle-kaana"></div>
+            <div class="background-circle-base background-circle-kaana-2"></div>
+            <div class="project-container-left">
+                <div class="project-showcase">
+                    <div class="showcase-grid-kaana">
+                        <!-- Top Left: Discovery Screen -->
+                        <div class="showcase-item grid-kaana-item1">
+                            <img src="assets/images/Kaana/Kaana_Discover_Screen.png" alt="Kaana Discovery Screen">
+                        </div>
+                        <!-- Center: Reels Screen (Hero) -->
+                        <div class="showcase-item grid-kaana-item2">
+                            <img src="assets/images/Kaana/Kaana_Reels_Screen.png" alt="Kaana Reels Screen">
+                        </div>
+                        <!-- Top Right: Map Screen -->
+                        <div class="showcase-item grid-kaana-item3">
+                            <img src="assets/images/Kaana/Kaana_Map_Screen.png" alt="Kaana Map Screen">
+                        </div>
+                        <!-- Bottom Left: Profile Screen -->
+                        <div class="showcase-item grid-kaana-item4">
+                            <img src="assets/images/Kaana/Kaana_Profile_Screen.png" alt="Kaana Profile Screen">
+                        </div>
+                        <!-- Bottom Right: Restaurant Screen -->
+                        <div class="showcase-item grid-kaana-item5">
+                            <img src="assets/images/Kaana/Kaana_Restaurant_Screen.png" alt="Kaana Restaurant Screen">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info-left">
+                    <div class="project-header">
+                        <div class="kaana-logo-badge">
+                            <img src="assets/images/Kaana/Kaana_icon.png" alt="Kaana Logo" class="kaana-project-logo">
+                        </div>
+                        <h2 class="project-title">Kaana</h2>
+                        <h3 class="project-subtitle">Founding Engineer</h3>
+                    </div>
+                    <div class="tech-stack-grid">
+                        <span class="tech-item">React Native</span>
+                        <span class="tech-item">NextJS</span>
+                        <span class="tech-item">Flask</span>
+                        <span class="tech-item">PostgreSQL</span>
+                        <span class="tech-item">Redis</span>
+                        <span class="tech-item">AWS EC2</span>
+                        <span class="tech-item">AWS S3</span>
+                        <span class="tech-item">Expo</span>
+                        <span class="tech-item">PostHog</span>
+                        <span class="tech-item">HLS Streaming</span>
+                        <span class="tech-item">NLP Search</span>
+                        <span class="tech-item">Computer Vision</span>
+                    </div>
+                    <p class="project-description">
+                        Led the design and launch of Kaana, a Video-first content discovery platform with vector-based semantic search.
+                        Architected an NLP search algorithm with weighted ranking, fuzzy text normalization, semantic query expansion, 
+                        geographic filtering, and tier-based ranking—increasing search accuracy by 80%. Implemented HLS streaming with 
+                        lightweight APIs for smooth reels experience. Integrated computer vision model with transformer-based architecture 
+                        for personalized video feed tagging.
+                    </p>
+                    <div class="kaana-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">80%</span>
+                            <span class="highlight-label">Search Accuracy</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">AI</span>
+                            <span class="highlight-label">Video Tagging</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">HLS</span>
+                            <span class="highlight-label">Low Latency</span>
+                        </div>
+                    </div>
+                    <div class="project-github">
+                        <a href="https://apps.apple.com/us/app/kaana/id6587548498" target="_blank" class="app-store-btn">
+                            <svg class="apple-icon" width="20" height="24" viewBox="0 0 384 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                            </svg>
+                            <span>View on App Store</span>
+                            <span class="arrow-icon">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Project 1 - Right layout -->
         <div class="project-container-right">
@@ -344,6 +460,20 @@
                     eamil to target leads sending them via
                     Email, Messages and AI powered Video Pitches
                 </p>
+                <div class="kaana-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-number">AI</span>
+                        <span class="highlight-label">Agent System</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-number">RAG</span>
+                        <span class="highlight-label">Pipeline</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-number">Video</span>
+                        <span class="highlight-label">Pitches</span>
+                    </div>
+                </div>
             </div>
             <div class="project-showcase">
                 <div class="showcase-grid-1">
@@ -392,7 +522,7 @@
                         <span class="tech-item">ReactJs</span>
                         <span class="tech-item">NodeJs</span>
                         <span class="tech-item">Flask</span>
-                        <span class="tech-item">AlphaVantage</span>
+                        <span class="tech-item tech-item-two-line">Alpha<br>Vantage</span>
                         <span class="tech-item">NIM</span>
                         <span class="tech-item">RAG Pipeline</span>
                         <span class="tech-item">Langchain</span>
@@ -408,6 +538,20 @@
                         investment portfolio.
                         Built with robustness and performance in mind using Nvidia NIM financila model.
                     </p>
+                    <div class="kaana-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">AI</span>
+                            <span class="highlight-label">Financial Advisor</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">NLP</span>
+                            <span class="highlight-label">Chat System</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">NVIDIA</span>
+                            <span class="highlight-label">NIM Model</span>
+                        </div>
+                    </div>
                     <div class="project-github">
                         <a href="https://github.com/asish-kun/AI-Stock-Advisor" target="_blank" class="github-link">
                             <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
@@ -446,6 +590,20 @@
                         While at this company also worked on optimizing 13 Home Screen API's implementing data caching
                         & GraphQL queries for efficient data retrieval.
                     </p>
+                    <div class="kaana-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">Real-Time</span>
+                            <span class="highlight-label">Tracking</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">Route</span>
+                            <span class="highlight-label">Optimization</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">GraphQL</span>
+                            <span class="highlight-label">API</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-showcase">
                     <div class="showcase-grid-3">
@@ -510,6 +668,20 @@
                         asses thier assignment comparing it to what professor is looking for. it is also useful for
                         professors in reducing grading time evaluating keyword graphs.
                     </p>
+                    <div class="kaana-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">6</span>
+                            <span class="highlight-label">LLMs Evaluated</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">NLP</span>
+                            <span class="highlight-label">Research</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">Academic</span>
+                            <span class="highlight-label">Portal</span>
+                        </div>
+                    </div>
                     <div class="project-github">
                         <a href="https://www.linkedin.com/in/asish-nelapati/details/projects/1743399175401/single-media-viewer/?profileId=ACoAADGEv0oBGakwrLYUx1ZInip8EzS9WF-deOE"
                             target="_blank" class="github-link">
@@ -619,14 +791,13 @@
             </div>
 
             <div class="contacts-info">
-                <h3 class="section-title">... /Contacts ...</h3>
+                <h3 class="section-title">/Contacts</h3>
 
                 <!-- Horizontal nav menu -->
                 <nav class="contacts-nav">
                     <ul>
                         <li><a href="#about" class="nav-item">About</a></li>
                         <li><a href="#projects" class="nav-item">Projects</a></li>
-                        <!-- <li><a href="#articles" class="nav-item">Articles</a></li> -->
                         <li><a href="#contacts" class="nav-item">Contacts</a></li>
                     </ul>
                 </nav>
