@@ -4,17 +4,19 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Only allow one deployment at a time; cancel any in-progress run
 concurrency:
   group: pages
   cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   deploy:
@@ -34,7 +36,6 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload the entire repo root (static site — no build step needed)
           path: '.'
 
       - name: Deploy to GitHub Pages
