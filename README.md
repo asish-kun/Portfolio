@@ -68,10 +68,15 @@ Portfolio/
 ├── script.js           # JavaScript functionality
 ├── assets/             # Static assets
 │   ├── icons/         # Social media icons
-│   └── images/        # Project images
+│   ├── images/        # Project images
+│   └── videos/        # Optional: Kaana demo (see assets/videos/README.md)
 ├── package.json        # Project configuration
 └── README.md          # This file
 ```
+
+### Kaana demo video (optional)
+
+The Kaana section can play a **local MP4** (`assets/videos/kaana-demo.mp4`) with no backend. See **`assets/videos/README.md`** for format tips and FFmpeg compression.
 
 ## 🌐 Deployment
 

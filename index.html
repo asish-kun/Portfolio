@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Asish Nelapati — Full-stack developer. Portfolio: Kaana (Founding Engineer), AI platforms, research, and systems work." />
     <title>Asish Nelapati - Full-stack Developer</title>
     
     <!-- Favicon -->
@@ -49,15 +50,37 @@
                 <li><a href="#contacts" class="nav-item">Contacts</a></li>
             </ul>
         </nav>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+            <span class="theme-toggle-icon theme-icon-moon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </span>
+            <span class="theme-toggle-icon theme-icon-sun">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </span>
+        </button>
     </header>
 
     <!-- HERO / INTRO -->
     <section class="hero">
-        <div class="background-circle-top"></div>
+        <div class="hero-bg-circle hero-circle-1"></div>
+        <div class="hero-bg-circle hero-circle-2"></div>
+        <div class="hero-bg-circle hero-circle-3"></div>
+        <div class="hero-bg-circle hero-circle-4"></div>
+        <div class="hero-bg-circle hero-circle-5"></div>
         <div class="hero-inner">
-            <!-- This row lines up Full-stack on the left and Projects btn on the right -->
+            <!-- This row lines up title on the left and Projects btn on the right -->
             <div class="hero-first-row">
-                <h2 class="hero-title fullstack-line">Full-stack</h2>
+                <div class="hero-title-changing">
+                    <span class="hero-role-word" aria-live="polite" id="heroRoleWord">Founding</span>
+                </div>
 
                 <!-- The project buttons on the same baseline -->
                 <div class="hero-buttons">
@@ -66,13 +89,15 @@
                 </div>
             </div>
 
-            <!-- "Developer" on its own line, right-aligned Along with subtitile -->
+            <!-- Second line: suffix word + subtitle -->
             <div class="developer-container">
                 <p class="hero-subtitle">
                     My goal is to <em>write maintainable, clean and understandable code</em>
                     to make the development process enjoyable.
                 </p>
-                <h2 class="hero-title developer-line">Developer</h2>
+                <h2 class="hero-title developer-line">
+                    <span id="heroSuffixWord">Engineer</span>
+                </h2>
             </div>
 
             <!-- Social links can remain here or below the subtitle -->
@@ -107,7 +132,7 @@
                         style="background-image: url('assets/images/Kaana/Kaana_Hero.png');"></div>
                     <div class="card-overlay kaana-overlay">
                         <h3>Kaana</h3>
-                        <p>Video-first food discovery platform with AI-powered semantic search, HLS streaming, and personalized feeds. Built as Founding Engineer.</p>
+                        <p>Founding Engineer on a video-first food discovery app—semantic search, HLS streaming, and ML-ranked feeds on iOS &amp; Android.</p>
                         <a href="#kaana-project" class="read-more">Read more →</a>
                     </div>
                 </div>
@@ -206,7 +231,10 @@
 
     <!-- ABOUT ME SECTION -->
     <section class="about-me" id="about">
-        <div class="background-circle"></div>
+        <div class="about-bg-circle about-circle-1"></div>
+        <div class="about-bg-circle about-circle-2"></div>
+        <div class="about-bg-circle about-circle-3"></div>
+        <div class="about-bg-circle about-circle-4"></div>
 
         <div class="about-content">
             <div class="about-header">
@@ -283,13 +311,13 @@
 
         <!-- 1) Ka'ana AI - Latest -->
         <div class="timeline-item kaana-highlight">
-            <div class="date-range"> 04/2025 - Present <br>10+ months</div>
+            <div class="date-range"> 04/2025 - Present <br>11+ months</div>
             <div class="company-details">
                 <div class="kaana-header-with-icon">
                     <img src="assets/images/Kaana/Kaana_icon.png" alt="Kaana Icon" class="kaana-work-icon">
                     <h4>Ka'ana AI</h4>
                 </div>
-                <p>Founding Engineer | Python(Flask), AWS, PostgreSQL, LLMs, Agentic AI, ML, Redis, Docker</p>
+                <p>Founding Engineer | Python (Flask), AWS, PostgreSQL, LLMs, Agentic AI, ML, Redis, Docker, Gemini API</p>
             </div>
         </div>
 
@@ -354,28 +382,40 @@
         <section class="project-section kaana-project-section" id="kaana-project">
             <div class="background-circle-base background-circle-kaana"></div>
             <div class="background-circle-base background-circle-kaana-2"></div>
-            <div class="project-container-left">
-                <div class="project-showcase">
-                    <div class="showcase-grid-kaana">
-                        <!-- Top Left: Discovery Screen -->
-                        <div class="showcase-item grid-kaana-item1">
-                            <img src="assets/images/Kaana/Kaana_Discover_Screen.png" alt="Kaana Discovery Screen">
+            <div class="project-container-left kaana-container">
+                <div class="project-showcase kaana-hero-showcase">
+                    <div class="kaana-hero-layout">
+                        <div class="kaana-orbit kaana-orbit--left">
+                            <div class="kaana-orbit-screen">
+                                <img src="assets/images/Kaana/Kaana_Discover_Screen.png" alt="Kaana Discovery">
+                            </div>
+                            <div class="kaana-orbit-screen">
+                                <img src="assets/images/Kaana/Kaana_Profile_Screen.png" alt="Kaana Profile">
+                            </div>
                         </div>
-                        <!-- Center: Reels Screen (Hero) -->
-                        <div class="showcase-item grid-kaana-item2">
-                            <img src="assets/images/Kaana/Kaana_Reels_Screen.png" alt="Kaana Reels Screen">
+                        <div class="kaana-hero-center">
+                            <div class="kaana-device-frame">
+                                <video
+                                    class="kaana-demo-video"
+                                    playsinline
+                                    muted
+                                    loop
+                                    preload="auto"
+                                    poster="assets/images/Kaana/Kaana_Reels_Screen.png"
+                                    aria-label="Kaana app screen recording">
+                                    <source src="assets/videos/Kaana App Video.mp4" type="video/mp4" />
+                                </video>
+                                <div class="kaana-device-shine" aria-hidden="true"></div>
+                            </div>
+                            <span class="kaana-hero-badge">Live Demo</span>
                         </div>
-                        <!-- Top Right: Map Screen -->
-                        <div class="showcase-item grid-kaana-item3">
-                            <img src="assets/images/Kaana/Kaana_Map_Screen.png" alt="Kaana Map Screen">
-                        </div>
-                        <!-- Bottom Left: Profile Screen -->
-                        <div class="showcase-item grid-kaana-item4">
-                            <img src="assets/images/Kaana/Kaana_Profile_Screen.png" alt="Kaana Profile Screen">
-                        </div>
-                        <!-- Bottom Right: Restaurant Screen -->
-                        <div class="showcase-item grid-kaana-item5">
-                            <img src="assets/images/Kaana/Kaana_Restaurant_Screen.png" alt="Kaana Restaurant Screen">
+                        <div class="kaana-orbit kaana-orbit--right">
+                            <div class="kaana-orbit-screen">
+                                <img src="assets/images/Kaana/Kaana_Map_Screen.png" alt="Kaana Map">
+                            </div>
+                            <div class="kaana-orbit-screen">
+                                <img src="assets/images/Kaana/Kaana_Restaurant_Screen.png" alt="Kaana Restaurant">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -399,7 +439,7 @@
                         <span class="tech-item">Gemini API</span>
                         <span class="tech-item">AWS Rekognition</span>
                         <span class="tech-item">HLS Streaming</span>
-                        <span class="tech-item">S3 URLs</span>
+                        <span class="tech-item">PostHog</span>
                     </div>
                     <div class="kaana-highlights">
                         <div class="highlight-item">
@@ -415,12 +455,17 @@
                             <span class="highlight-label">Latency Reduction</span>
                         </div>
                     </div>
-                    <div class="project-github">
-                        <a href="https://apps.apple.com/us/app/kaana/id6587548498" target="_blank" class="app-store-btn">
-                            <svg class="apple-icon" width="20" height="24" viewBox="0 0 384 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <div class="project-github kaana-cta-row">
+                        <a href="https://apps.apple.com/us/app/kaana/id6749241835" target="_blank" class="app-store-btn">
+                            <svg class="apple-icon" width="18" height="18" viewBox="0 0 384 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
                             </svg>
-                            <span>View on App Store</span>
+                            <span>App Store</span>
+                            <span class="arrow-icon">↗</span>
+                        </a>
+                        <a href="https://www.kaana.app" target="_blank" class="kaana-web-btn">
+                            <img src="assets/images/Kaana/Kaana_icon.png" alt="Kaana" class="kaana-web-icon">
+                            <span>kaana.app</span>
                             <span class="arrow-icon">↗</span>
                         </a>
                     </div>
@@ -428,10 +473,10 @@
                 <div class="project-description-full-width">
                     <div class="project-description">
                         <p class="project-description-point">
-                            Led end-to-end development of Kaana from POC to production on iOS & Android Platforms for a regional user base. Architected & deployed infrastructure supporting 10K+ users, including auth, builds, API endpoint, EC2 deployment, PostgreSQL DB, Database design, Redis caching, CI/CD pipelines, docker, and Posthog analytics.
+                            Founding Engineer: shipped Kaana from POC through production on iOS &amp; Android for a regional launch. Owned cloud architecture and delivery—authentication, APIs, PostgreSQL, Redis caching, Dockerized services, EC2 deployment, CI/CD, and PostHog analytics—supporting 10K+ users with reliable observability.
                         </p>
                         <p class="project-description-point">
-                            Engineered a low-latency LLM inference pipeline using Gemini API and custom ML ranking algorithms, processing natural language queries into optimized SQL filters with <500ms response time. Architected an adaptive ML-driven search system for restaurants, reels, and photos, achieving 95%+ relevance.
+                            Built a low-latency LLM inference stack (Gemini API) with custom ML ranking—natural language to optimized filters in &lt;500ms—and adaptive search across restaurants, reels, and photos (95%+ relevance), with HLS-backed media delivery and content tooling.
                         </p>
                     </div>
                 </div>

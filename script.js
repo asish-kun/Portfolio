@@ -2,15 +2,94 @@
 // MODERN 2025 PORTFOLIO - JavaScript
 // ==========================================
 
-const langButtons = document.querySelectorAll('.lang');
+// ==========================================
+// LIGHT / DARK THEME TOGGLE
+// ==========================================
+(function () {
+    const html = document.documentElement;
+    const STORAGE_KEY = 'portfolio-theme';
 
-langButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        langButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        console.log(`Switched language to: ${button.dataset.lang}`);
+    // Apply saved or system preference immediately (no flash)
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+        html.setAttribute('data-theme', 'light');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('themeToggle');
+        if (!btn) return;
+
+        btn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            if (next === 'light') {
+                html.setAttribute('data-theme', 'light');
+            } else {
+                html.removeAttribute('data-theme');
+            }
+            localStorage.setItem(STORAGE_KEY, next);
+        });
     });
-});
+})();
+
+// ==========================================
+// HERO ROTATING TITLE
+// ==========================================
+(function () {
+    // Each entry: [firstLine, secondLine]
+    // secondLine is always shown on the developer-line (right-aligned)
+    const roles = [
+        ['Founding',   'Engineer'],
+        ['AI',         'Engineer'],
+        ['Full Stack', 'Engineer'],
+        ['Cloud',      'Engineer'],
+    ];
+
+    let current = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const wordEl   = document.getElementById('heroRoleWord');
+        const suffixEl = document.getElementById('heroSuffixWord');
+        if (!wordEl || !suffixEl) return;
+
+        function applyAlignment(idx) {
+            wordEl.classList.toggle('hero-role-word--center', roles[idx][0] === 'AI');
+        }
+
+        // Kick off the first visible state instantly (no delay)
+        applyAlignment(current);
+        wordEl.classList.add('is-entering');
+
+        function cycle() {
+            // --- exit current ---
+            wordEl.classList.remove('is-entering');
+            wordEl.classList.add('is-leaving');
+
+            wordEl.addEventListener('animationend', function onLeave() {
+                wordEl.removeEventListener('animationend', onLeave);
+                wordEl.classList.remove('is-leaving');
+
+                // advance
+                current = (current + 1) % roles.length;
+                wordEl.textContent   = roles[current][0];
+                suffixEl.textContent = roles[current][1];
+                applyAlignment(current);
+
+                // --- enter next ---
+                wordEl.classList.add('is-entering');
+
+                wordEl.addEventListener('animationend', function onEnter() {
+                    wordEl.removeEventListener('animationend', onEnter);
+                    wordEl.classList.remove('is-entering');
+                });
+            }, { once: true });
+        }
+
+        // Change every 2.8 s
+        setInterval(cycle, 2800);
+    });
+})();
 
 // ==========================================
 // DYNAMIC BACKGROUND CIRCLES - Parallax
@@ -79,41 +158,47 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// INTERSECTION OBSERVER - Reveal Animations
+// INTERSECTION OBSERVER - Apple-style Scroll Reveals
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                
-                // Stagger children animations
                 const children = entry.target.querySelectorAll('.stagger-child');
-                children.forEach((child, index) => {
-                    child.style.animationDelay = `${index * 0.1}s`;
+                children.forEach((child, idx) => {
+                    child.style.transitionDelay = `${idx * 0.08}s`;
                     child.classList.add('active');
                 });
             }
         });
-    }, observerOptions);
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.12 });
 
-    // Observe elements
-    const revealElements = document.querySelectorAll(
+    document.querySelectorAll(
         '.project-title, .project-subtitle, .tech-stack-grid, .project-description, ' +
         '.skill-card, .timeline-item, .showcase-item, .section-title, ' +
-        '.kaana-highlights, .highlight-item'
-    );
-
-    revealElements.forEach(el => {
+        '.kaana-highlights, .highlight-item, .kaana-hero-center, .kaana-hero-badge, ' +
+        '.project-header, .project-github, .app-store-btn, ' +
+        '.about-header, .intro-text, .profile-image-container'
+    ).forEach(el => {
         el.classList.add('reveal');
-        observer.observe(el);
+        revealObserver.observe(el);
     });
+
+    // Kaana orbit screens: staggered reveal with slight delay
+    const orbitObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const screens = entry.target.querySelectorAll('.kaana-orbit-screen');
+                screens.forEach((screen, i) => {
+                    setTimeout(() => screen.classList.add('is-visible'), 200 + i * 180);
+                });
+                orbitObserver.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.15 });
+
+    document.querySelectorAll('.kaana-hero-layout').forEach(el => orbitObserver.observe(el));
 });
 
 // ==========================================
@@ -614,4 +699,35 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
         });
     });
+});
+
+// ==========================================
+// KAANA DEMO VIDEO — autoplay on scroll into view
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('.kaana-demo-video');
+    if (!video) return;
+
+    // Poster fallback if video file is missing
+    video.addEventListener('error', () => {
+        video.style.display = 'none';
+        const poster = document.createElement('img');
+        poster.src = video.getAttribute('poster');
+        poster.alt = 'Kaana app demo poster';
+        poster.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:inherit;';
+        video.parentElement.appendChild(poster);
+    });
+
+    // Auto-play when Kaana section is in view, pause when not
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    videoObserver.observe(video);
 });
