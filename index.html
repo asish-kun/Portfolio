@@ -4,1025 +4,548 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Asish Nelapati — Full-stack developer. Portfolio: Kaana (Founding Engineer), AI platforms, research, and systems work." />
-    <title>Asish Nelapati - Full-stack Developer</title>
-    
+    <meta name="description"
+        content="Asish Nelapati — Founding Engineer. I take products from zero to production: AI agents, search systems, and the infrastructure that keeps them fast." />
+    <meta name="theme-color" content="#0a0a0b" />
+    <title>Asish Nelapati — Founding Engineer</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Asish Nelapati — Founding Engineer" />
+    <meta property="og:description"
+        content="I take products from zero to production: AI agents, search systems, and the infrastructure that keeps them fast." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://asishnelapati.tech" />
+    <meta property="og:image" content="https://asishnelapati.tech/assets/site/og-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://asishnelapati.tech/assets/site/og-card.png" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="alternate icon" href="favicon.svg" />
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fira Code for Some Headings -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Open Sans for Body and selected headings -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <!-- Dynamic Background Circles -->
-    <div class="dynamic-circles-container">
-        <div class="dynamic-circle circle-1"></div>
-        <div class="dynamic-circle circle-2"></div>
-        <div class="dynamic-circle circle-3"></div>
-        <div class="dynamic-circle circle-4"></div>
-        <div class="dynamic-circle circle-5"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-term">
+            <span class="pl-line">$ init asish_nelapati --production</span>
+            <span class="pl-line"><i>▸</i> systems online · caches warm</span>
+            <span class="pl-line"><i>▸</i> p95 latency nominal</span>
+            <span class="pl-line pl-ok">ready</span>
+        </div>
     </div>
 
-    <!-- Grain Overlay for Modern Texture -->
-    <div class="grain-overlay"></div>
+    <!-- Grain -->
+    <div class="grain" aria-hidden="true"></div>
 
-    <!-- HEADER -->
-    <header class="main-header">
-        <div class="logo">
-            <!-- Force Open Sans on header name -->
-            <h1 class="header-title">Asish Nelapati</h1>
-        </div>
-        <nav class="nav-links">
-            <ul>
-                <li><a href="#about" class="nav-item">About</a></li>
-                <li><a href="#projects" class="nav-item">Projects</a></li>
-                <!-- <li><a href="#articles" class="nav-item">Articles</a></li> -->
-                <li><a href="#contacts" class="nav-item">Contacts</a></li>
-            </ul>
+    <!-- Custom cursor (desktop) -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <header class="nav" id="nav">
+        <a href="#top" class="nav-logo" data-hover>AN<span class="accent">.</span></a>
+        <nav class="nav-links" aria-label="Primary">
+            <a href="#work" class="nav-link" data-hover><span class="nav-index">01</span>Work</a>
+            <a href="#about" class="nav-link" data-hover><span class="nav-index">02</span>About</a>
+            <a href="#experience" class="nav-link" data-hover><span class="nav-index">03</span>Experience</a>
+            <a href="#contact" class="nav-link" data-hover><span class="nav-index">04</span>Contact</a>
         </nav>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
-            <span class="theme-toggle-icon theme-icon-moon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-            </span>
-            <span class="theme-toggle-icon theme-icon-sun">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"/>
-                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-            </span>
+        <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span>
         </button>
     </header>
 
-    <!-- HERO / INTRO -->
-    <section class="hero">
-        <div class="hero-bg-circle hero-circle-1"></div>
-        <div class="hero-bg-circle hero-circle-2"></div>
-        <div class="hero-bg-circle hero-circle-3"></div>
-        <div class="hero-bg-circle hero-circle-4"></div>
-        <div class="hero-bg-circle hero-circle-5"></div>
-        <div class="hero-inner">
-            <!-- This row lines up title on the left and Projects btn on the right -->
-            <div class="hero-first-row">
-                <div class="hero-title-changing">
-                    <span class="hero-role-word" aria-live="polite" id="heroRoleWord">Founding</span>
-                </div>
-
-                <!-- The project buttons on the same baseline -->
-                <div class="hero-buttons">
-                    <button class="projects-btn" data-target="#projects">Projects</button>
-                    <button class="arrow-btn" data-target="#projects">→</button>
-                </div>
-            </div>
-
-            <!-- Second line: suffix word + subtitle -->
-            <div class="developer-container">
-                <p class="hero-subtitle">
-                    My goal is to <em>write maintainable, clean and understandable code</em>
-                    to make the development process enjoyable.
-                </p>
-                <h2 class="hero-title developer-line">
-                    <span id="heroSuffixWord">Engineer</span>
-                </h2>
-            </div>
-
-            <!-- Social links can remain here or below the subtitle -->
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/asish-nelapati/" target="_blank" class="social-button">
-                    <img src="assets/icons/linkedin.png" alt="LinkedIn Logo" class="social-icon" />
-                    <span class="social-text">LinkedIn</span>
-                </a>
-                <a href="https://github.com/asish-kun" target="_blank" class="social-button">
-                    <img src="assets/icons/github.png" alt="GitHub Logo" class="social-icon" />
-                    <span class="social-text">GitHub</span>
-                </a>
-                <a href="https://www.instagram.com/ashish_mickey/" target="_blank" class="social-button">
-                    <img src="assets/icons/instagram.png" alt="Instagram Logo" class="social-icon" />
-                    <span class="social-text">Instagram</span>
-                </a>
-                <a href="https://www.youtube.com/@ashall_amv" target="_blank" class="social-button">
-                    <img src="assets/icons/youtube.png" alt="YouTube Logo" class="social-icon" />
-                    <span class="social-text">YouTube</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Carousel / article cards below -->
-        <div class="carousel-container">
-            <button class="slider-arrow left-arrow">←</button>
-            <div class="carousel-track">
-
-                <!-- Card #1 - Kaana -->
-                <div class="carousel-card kaana-card">
-                    <div class="card-image"
-                        style="background-image: url('assets/images/Kaana/Kaana_Hero.png');"></div>
-                    <div class="card-overlay kaana-overlay">
-                        <h3>Kaana</h3>
-                        <p>Founding Engineer on a video-first food discovery app—semantic search, HLS streaming, and ML-ranked feeds on iOS &amp; Android.</p>
-                        <a href="#kaana-project" class="read-more">Read more →</a>
-                    </div>
-                </div>
-
-                <!-- Card #2 -->
-                <div class="carousel-card">
-                    <div class="card-image"
-                        style="background-image: url('assets/images/AI-Marekting\ Tool/Group 1.png');"></div>
-                    <div class="card-overlay">
-                        <h3>AI Marketing BDR</h3>
-                        <p>AI Marketing BDR - an AI-Powered Business Development Resource that helps us wirte
-                            collaborative
-                            eamil to target leads
-                            Email, Messages and AI powered Video Pitches.</p>
-                        <a href="#" class="read-more">Read more →</a>
-                    </div>
-                </div>
-
-                <!-- Card #2 -->
-                <div class="carousel-card">
-                    <div class="card-image"
-                        style="background-image: url('assets/images/AI-Stock\ Advisor/Group 2.png');"></div>
-                    <div class="card-overlay">
-                        <h3>AI Stock Advisor</h3>
-                        <p>A sophisticated ai financial advisor system that helps users manage their stock
-                            investments.Features advisor chat, regarding general stock market details of a company.</p>
-                        <a href="#" class="read-more">Read more →</a>
-                    </div>
-                </div>
-
-                <!-- Card #3 -->
-                <div class="carousel-card">
-                    <div class="card-image"
-                        style="background-image: url('assets/images/RA/Star\ problem\ solvers.jpeg');"></div>
-                    <div class="card-overlay">
-                        <h3>Global Finalist NASA Space App</h3>
-                        <p>Built a Project Requirements Generation Model following NASA's requirement guidelines using a
-                            flask based UI and a Trained NLP model with previous project's requiremnts data.</p>
-                        <a href="#" class="read-more">Read more →</a>
-                    </div>
-                </div>
-
-                <!-- Card #4 -->
-                <div class="carousel-card">
-                    <div class="card-image" style="background-image: url('assets/images/MediBuddy/Group\ 3.png');">
-                    </div>
-                    <div class="card-overlay">
-                        <h3>Location Capture Flow</h3>
-                        <p>Designed and Built this systemt to capture users precise location to set thier delivery's
-                            destination.</p>
-                        <a href="#" class="read-more">Read more →</a>
-                    </div>
-                </div>
-
-                <!-- Card #5 -->
-                <div class="carousel-card">
-                    <div class="card-image" style="background-image: url('assets/images/RA/Group\ 2.png');"></div>
-                    <div class="card-overlay">
-                        <h3>LLM Code Generation</h3>
-                        <p>Worked on assesing 6 major LLM's on thier code generation capabilities, comparing results
-                            runtime, memory, time and space complexity assesing thier performance.</p>
-                        <a href="#" class="read-more">Read more →</a>
-                    </div>
-                </div>
-
-                <!-- Card #6 -->
-                <div class="carousel-card">
-                    <div class="card-image"
-                        style="background-image: url('assets/images/AI-Stock\ Advisor/Portfolio Management Screen.png');">
-                    </div>
-                    <div class="card-overlay">
-                        <h3>AI Advisor Portfolio</h3>
-                        <p>personal investment portfolio. Built with robustness and performance in mind using Nvidia
-                            NIM financila model.</p>
-                        <a href="#" class="read-more">Read more →</a>
-                    </div>
-                </div>
-
-                <!-- Card #7 -->
-                <div class="carousel-card">
-                    <div class="card-image" style="background-image: url('assets/images/RA/Group\ 3.png');"></div>
-                    <div class="card-overlay">
-                        <h3>Assignment Evaluation Portal</h3>
-                        <p>Worked on building a academic portal for students to submit their assignments to generate
-                            keywords graph helping them asses thier assignment comparing it to what professor is looking
-                            for.
-                        </p>
-                        <a href="#" class="read-more">Read more →</a>
-                    </div>
-                </div>
-                <!-- More cards if needed... -->
-            </div>
-            <button class="slider-arrow right-arrow">→</button>
-        </div>
-    </section>
-
-    <!-- ABOUT ME SECTION -->
-    <section class="about-me" id="about">
-        <div class="about-bg-circle about-circle-1"></div>
-        <div class="about-bg-circle about-circle-2"></div>
-        <div class="about-bg-circle about-circle-3"></div>
-        <div class="about-bg-circle about-circle-4"></div>
-
-        <div class="about-content">
-            <div class="about-header">
-                <h3 class="section-title">... /About me ...</h3>
-                <div class="intro-text">
-                    <p>Hello! I'm Asish, a <strong>full-stack developer</strong> and <strong>Founding Engineer</strong>.</p>
-                    <p>With <strong>4+ years</strong> of experience building AI-integrated systems, video-first platforms, and distributed systems at scale. I specialize in transforming product visions into high-performance applications with cutting-edge technology.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="about-container">
-            <div class="skills-layout">
-
-                <div class="skill-card full-width">
-                    <h4>Gen-AI</h4>
-                    <p> OpenAI / Olamma / CrewAI / AutoGen / LangGraph / LangChain / PyTorch</p>
-                </div>
-
-                <div class="skill-row">
-                    <div class="skill-card left-half">
-
-                        <h4>Front-end</h4>
-                        <p>JavaScript / TypeScript / React / Java / Wordpress </p>
-                    </div>
-                    <!-- GitHub Logo overlapped by an arrow -->
-                    <div class="github-arrow">
-                        <a href="https://github.com/asish-kun" target="_blank" class="github-link">
-                            <img src="assets/icons/github.png" alt="GitHub Logo" class="github-icon" />
-                            <span class="arrow-icon">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="skill-card right-half">
-                    <h4>Back-end</h4>
-                    <p> NodeJs / Flask / GraphQL / REST API / Docker / Heroku
-                    </p>
-                </div>
-
-                <div class="skill-card full-width">
-
-                    <h4>Cloud & Data bases</h4>
-                    <p>AWS / Azure / IaC / Elastic Load Balancer/ PostgreSQL / MySQL / AWS RDS / CosmosDB / Supabase /
-                        Firebase </p>
-                </div>
-
-                <div class="skill-row">
-
-                    <p class="favorite-tech">
-                        These are Some of my favourite technologies, topics or tools I've worked on;
-                    </p>
-
-                    <div class="skill-card right-half">
-                        <h4>Mobile Dev</h4>
-                        <p>Android SDK / Kotlin / Java / Flutter / XML / JSON / Crashlytics / Google Console /
-                            GoogleAPI's</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <!-- Profile Image on the right (over the background circle) -->
-            <div class="profile-image-container">
-                <img src="assets/images/profile.jpg" alt="Profile" class="profile-image" />
-            </div>
-        </div>
-
-    </section>
-
-    <section class="work-timeline" id="work">
-        <h3 class="section-title">Work</h3>
-
-        <!-- 1) Ka'ana AI - Latest -->
-        <div class="timeline-item kaana-highlight">
-            <div class="date-range"> 04/2025 - Present <br>11+ months</div>
-            <div class="company-details">
-                <div class="kaana-header-with-icon">
-                    <img src="assets/images/Kaana/Kaana_icon.png" alt="Kaana Icon" class="kaana-work-icon">
-                    <h4>Ka'ana AI</h4>
-                </div>
-                <p>Founding Engineer | Python (Flask), AWS, PostgreSQL, LLMs, Agentic AI, ML, Redis, Docker, Gemini API</p>
-            </div>
-        </div>
-
-        <!-- 2) Bamboo Rose -->
-        <div class="timeline-item">
-            <div class="date-range"> 05/2024 - 08/2024 <br>3 months</div>
-            <div class="company-details">
-                <h4>Bamboo Rose</h4>
-                <p>AI Engineer | ReactJS, Flask, LangGraph, CrewAI, OpenAI API, Pinecone, Supabase</p>
-            </div>
-        </div>
-
-        <!-- 3) Penn State University -->
-        <div class="timeline-item">
-            <div class="date-range"> 09/2023 - 05/2025 <br>1 year 8 months</div>
-            <div class="company-details">
-                <h4>The Pennsylvania State University</h4>
-                <p>Graduate Research Assistant | Node.JS, Docker</p>
-            </div>
-        </div>
-
-        <!-- 4) MediBuddy -->
-        <div class="timeline-item">
-            <div class="date-range">06/2022 - 05/2023<br>11 months</div>
-            <div class="company-details">
-                <h4>MediBuddy</h4>
-                <p>Software Development Engineer | Java, Kotlin, Google APIs, GraphQL, Apollo, Firebase, Crashlytics</p>
-            </div>
-        </div>
-
-        <!-- 5) Blue Yonder -->
-        <div class="timeline-item">
-            <div class="date-range">07/2021 - 06/2022<br>11 months</div>
-            <div class="company-details">
-                <h4>Blue Yonder</h4>
-                <p>Backend Engineer | Node.JS, MySQL, AWS, Docker, Microservices</p>
-            </div>
-        </div>
-
-        <!-- 4) Business Up -->
-        <div class="timeline-item">
-            <div class="date-range">2021 <br>6 months</div>
-            <div class="company-details">
-                <h4>WILP</h4>
-                <p>Frontend developer | React.JS, BootStrap, PostgreSQL, RDP Protocol</p>
-            </div>
-        </div>
-
-        <!-- Total work experience -->
-        <div class="total-experience">
-            <p>Work experience<br>4+ years</p>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="projects-section" id="projects">
-        <div class="section-title-container">
-            <h3 class="section-title">... /Projects ...</h3>
-        </div>
-
-        <!-- Project 0 - Kaana (Featured) -->
-        <section class="project-section kaana-project-section" id="kaana-project">
-            <div class="background-circle-base background-circle-kaana"></div>
-            <div class="background-circle-base background-circle-kaana-2"></div>
-            <div class="project-container-left kaana-container">
-                <div class="project-showcase kaana-hero-showcase">
-                    <div class="kaana-hero-layout">
-                        <div class="kaana-orbit kaana-orbit--left">
-                            <div class="kaana-orbit-screen">
-                                <img src="assets/images/Kaana/Kaana_Discover_Screen.png" alt="Kaana Discovery">
-                            </div>
-                            <div class="kaana-orbit-screen">
-                                <img src="assets/images/Kaana/Kaana_Profile_Screen.png" alt="Kaana Profile">
-                            </div>
-                        </div>
-                        <div class="kaana-hero-center">
-                            <div class="kaana-device-frame">
-                                <video
-                                    class="kaana-demo-video"
-                                    playsinline
-                                    muted
-                                    loop
-                                    preload="auto"
-                                    poster="assets/images/Kaana/Kaana_Reels_Screen.png"
-                                    aria-label="Kaana app screen recording">
-                                    <source src="assets/videos/Kaana App Video.mp4" type="video/mp4" />
-                                </video>
-                                <div class="kaana-device-shine" aria-hidden="true"></div>
-                            </div>
-                            <span class="kaana-hero-badge">Live Demo</span>
-                        </div>
-                        <div class="kaana-orbit kaana-orbit--right">
-                            <div class="kaana-orbit-screen">
-                                <img src="assets/images/Kaana/Kaana_Map_Screen.png" alt="Kaana Map">
-                            </div>
-                            <div class="kaana-orbit-screen">
-                                <img src="assets/images/Kaana/Kaana_Restaurant_Screen.png" alt="Kaana Restaurant">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-info-left">
-                    <div class="project-header">
-                        <div class="kaana-logo-badge">
-                            <img src="assets/images/Kaana/Kaana_icon.png" alt="Kaana Logo" class="kaana-project-logo">
-                        </div>
-                        <h2 class="project-title">Kaana</h2>
-                        <h3 class="project-subtitle">Founding Engineer</h3>
-                    </div>
-                    <div class="tech-stack-grid">
-                        <span class="tech-item">Python(Flask)</span>
-                        <span class="tech-item">AWS</span>
-                        <span class="tech-item">PostgreSQL</span>
-                        <span class="tech-item">LLMs</span>
-                        <span class="tech-item">Agentic AI</span>
-                        <span class="tech-item">ML</span>
-                        <span class="tech-item">Redis</span>
-                        <span class="tech-item">Docker</span>
-                        <span class="tech-item">Gemini API</span>
-                        <span class="tech-item">AWS Rekognition</span>
-                        <span class="tech-item">HLS Streaming</span>
-                        <span class="tech-item">PostHog</span>
-                    </div>
-                    <div class="kaana-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-number">10K+</span>
-                            <span class="highlight-label">Users</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">95%+</span>
-                            <span class="highlight-label">ML Relevance</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">40%</span>
-                            <span class="highlight-label">Latency Reduction</span>
-                        </div>
-                    </div>
-                    <div class="project-github kaana-cta-row">
-                        <a href="https://apps.apple.com/us/app/kaana/id6749241835" target="_blank" class="app-store-btn">
-                            <svg class="apple-icon" width="18" height="18" viewBox="0 0 384 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-                            </svg>
-                            <span>App Store</span>
-                            <span class="arrow-icon">↗</span>
-                        </a>
-                        <a href="https://www.kaana.app" target="_blank" class="kaana-web-btn">
-                            <img src="assets/images/Kaana/Kaana_icon.png" alt="Kaana" class="kaana-web-icon">
-                            <span>kaana.app</span>
-                            <span class="arrow-icon">↗</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-description-full-width">
-                    <div class="project-description">
-                        <p class="project-description-point">
-                            Founding Engineer: shipped Kaana from POC through production on iOS &amp; Android for a regional launch. Owned cloud architecture and delivery—authentication, APIs, PostgreSQL, Redis caching, Dockerized services, EC2 deployment, CI/CD, and PostHog analytics—supporting 10K+ users with reliable observability.
-                        </p>
-                        <p class="project-description-point">
-                            Built a low-latency LLM inference stack (Gemini API) with custom ML ranking—natural language to optimized filters in &lt;500ms—and adaptive search across restaurants, reels, and photos (95%+ relevance), with HLS-backed media delivery and content tooling.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project 1 - Right layout -->
-        <div class="project-container-right">
-            <div class="background-circle-base background-circle-right-1"></div>
-            <div class="project-info-right">
-                <div class="project-header">
-                    <h2 class="project-title">AI-BDR Platform</h2>
-                    <h3 class="project-subtitle">AI Engineer</h3>
-                </div>
-                <div class="tech-stack-grid">
-                    <span class="tech-item">ReactJS</span>
-                    <span class="tech-item">Flask</span>
-                    <span class="tech-item">LangGraph</span>
-                    <span class="tech-item">CrewAI</span>
-                    <span class="tech-item">OpenAI API</span>
-                    <span class="tech-item">Pinecone</span>
-                    <span class="tech-item">Supabase</span>
-                    <span class="tech-item">Gmail API</span>
-                </div>
-                <div class="kaana-highlights">
-                    <div class="highlight-item">
-                        <span class="highlight-number">8</span>
-                        <span class="highlight-label">Paying Users</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">70%</span>
-                        <span class="highlight-label">Time Saved</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">AI</span>
-                        <span class="highlight-label">Agents</span>
-                    </div>
-                </div>
-                <div class="project-github">
-                    <a href="https://github.com/asish-kun" target="_blank" class="github-link">
-                        <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
-                        <span class="arrow-icon">↗</span>
-                    </a>
-                </div>
-            </div>
-            <div class="project-showcase">
-                <div class="showcase-grid-1">
-                    <div class="showcase-item grid-1-item1">
-                        <img src="assets/images/AI-Marekting Tool/Group 1.png" alt="GOstat main interface">
-                    </div>
-                    <div class="showcase-item grid-1-item2">
-                        <img src="assets/images/AI-Marekting Tool/Group 4.png" alt="GOstat stats">
-                    </div>
-                    <div class="showcase-item grid-1-item3">
-                        <img src="assets/images/AI-Marekting Tool/Group 5.png" alt="GOstat dashboard">
-                    </div>
-                    <div class="showcase-item grid-1-item4">
-                        <img src="assets/images/AI-Marekting Tool/Group 2.png" alt="GOstat metrics">
-                    </div>
-                </div>
-            </div>
-            <div class="project-description-full-width">
-                <div class="project-description">
-                    <p class="project-description-point">
-                        Built an AI-BDR platform that can automate outreach campaigns for businesses, converting 7 leads into paying users. Orchestrated LangGraph agents to research, generate & send them to Gmail drafts for each target saving 70% time.
-                    </p>
-                    <p class="project-description-point">
-                        Integrated advanced AI workflows for prospect research and personalized campaign generation. Implemented comprehensive automation system for business development representatives.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Project 2 - Left layout -->
-        <section class="project-section">
-            <div class="background-circle-base background-circle-left-1"></div>
-            <div class="project-container-left">
-                <div class="project-showcase">
-                    <div class="showcase-grid-2">
-                        <div class="showcase-item grid-2-item1">
-                            <img src="assets/images/AI-Stock Advisor/Group 3.png" alt="Anime Sentry main view">
-                        </div>
-                        <div class="showcase-item grid-2-item3">
-                            <img src="assets/images/AI-Stock Advisor/Group 1.png" alt="Anime Sentry schedule">
-                        </div>
-                        <div class="showcase-item grid-2-item4">
-                            <img src="assets/images/AI-Stock Advisor/Group 4.png" alt="Anime Sentry mobile">
-                        </div>
-                        <div class="showcase-item grid-2-item5">
-                            <img src="assets/images/AI-Stock Advisor/Group 5.png" alt="Anime Sentry dashboard">
-                        </div>
-                    </div>
-                </div>
-                <div class="project-info-left">
-                    <div class="project-header">
-                        <h2 class="project-title">AI Stock Advisor</h2>
-                        <h3 class="project-subtitle">Capstone Project</h3>
-                    </div>
-                    <div class="tech-stack-grid">
-                        <span class="tech-item">ReactJs</span>
-                        <span class="tech-item">NodeJs</span>
-                        <span class="tech-item">Flask</span>
-                        <span class="tech-item tech-item-two-line">Alpha<br>Vantage</span>
-                        <span class="tech-item">NIM</span>
-                        <span class="tech-item">RAG Pipeline</span>
-                        <span class="tech-item">Langchain</span>
-                        <span class="tech-item">CosmosDB</span>
-                        <span class="tech-item">VectorDB</span>
-                        <span class="tech-item">Docker</span>
-                        <span class="tech-item">Heroku</span>
-                        <span class="tech-item">CI/CD</span>
-                    </div>
-                    <div class="kaana-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-number">AI</span>
-                            <span class="highlight-label">Financial Advisor</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">NLP</span>
-                            <span class="highlight-label">Chat System</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">NVIDIA</span>
-                            <span class="highlight-label">NIM Model</span>
-                        </div>
-                    </div>
-                    <div class="project-github">
-                        <a href="https://github.com/asish-kun/AI-Stock-Advisor" target="_blank" class="github-link">
-                            <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
-                            <span class="arrow-icon">↗</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-description-full-width">
-                    <div class="project-description">
-                        <p class="project-description-point">
-                            Built an AI-stock Advisor system that talks to users about their portfolios by fine tuning a Llama model on SEC filings and news articles, with RAG & Langchain agents for real-time stock data, deployed it on Azure Containers.
-                        </p>
-                        <p class="project-description-point">
-                            Integrated advanced AI capabilities for portfolio analysis and investment recommendations. Implemented comprehensive financial advisory system with natural language processing for user interactions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project 3 - Right layout -->
-        <section class="project-section">
-            <div class="background-circle-base background-circle-right-2"></div>
-            <div class="project-container-right">
-                <div class="project-info-right">
-                    <div class="project-header">
-                        <h2 class="project-title">Real-Time Location Tracking</h2>
-                        <h3 class="project-subtitle">MediBuddy</h3>
-                    </div>
-                    <div class="tech-stack-grid">
-                        <span class="tech-item">Kotlin</span>
-                        <span class="tech-item">Android</span>
-                        <span class="tech-item">NodeJs</span>
-                        <span class="tech-item">Apollo/GraphQL</span>
-                        <span class="tech-item">PostgreSQL</span>
-                        <span class="tech-item">AWS RDS</span>
-                        <span class="tech-item">Google Maps</span>
-                        <span class="tech-item">Google GeoCoder</span>
-                        <span class="tech-item">Google Routes</span>
-                        <span class="tech-item">Google Places</span>
-                        <span class="tech-item">Clever Tap</span>
-                    </div>
-                    <div class="kaana-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-number">Real-Time</span>
-                            <span class="highlight-label">Tracking</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">Route</span>
-                            <span class="highlight-label">Optimization</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">GraphQL</span>
-                            <span class="highlight-label">API</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-showcase">
-                    <div class="showcase-grid-3">
-                        <div class="showcase-item grid-3-item1">
-                            <img src="assets/images/MediBuddy/Group 3.png" alt="DevFlow dashboard">
-                        </div>
-                        <div class="showcase-item grid-3-item2">
-                            <img src="assets/images/MediBuddy/Group 1.png" alt="DevFlow pipeline">
-                        </div>
-                    </div>
-                </div>
-                <div class="project-description-full-width">
-                    <div class="project-description">
-                        <p class="project-description-point">
-                            Launched Google Maps features to users to pin the delivery location & provide live tracking of delivery partners. Integrated Google APIs to build an automated route scheduling system for drivers increasing delivery rate by 30%.
-                        </p>
-                        <p class="project-description-point">
-                            Optimized 13 APIs to GraphQL, reducing latency by 60%, improving user experience for 30 million+ customers. Implemented data caching & GraphQL queries for efficient data retrieval.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project 4 - Replicated Concurrency Control (Full Width, No Images) -->
-        <section class="project-section">
-            <div class="background-circle-base background-circle-left-2"></div>
-            <div class="project-container-full-width">
-                <div class="project-info-center">
-                    <div class="project-header">
-                        <h2 class="project-title">Replicated Concurrency Control</h2>
-                        <h3 class="project-subtitle">Penn State Course Project</h3>
-                    </div>
-                    <div class="tech-stack-grid">
-                        <span class="tech-item">C++</span>
-                        <span class="tech-item">Distributed Systems</span>
-                        <span class="tech-item">Concurrency</span>
-                        <span class="tech-item">MVCC</span>
-                        <span class="tech-item">Replication</span>
-                        <span class="tech-item">Fault Tolerance</span>
-                        <span class="tech-item">Serializable Isolation</span>
-                        <span class="tech-item">Available Copies</span>
-                        <span class="tech-item">Lock-free</span>
-                    </div>
-                    <div class="kaana-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-number">C++</span>
-                            <span class="highlight-label">Implementation</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">MVCC</span>
-                            <span class="highlight-label">Algorithm</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">Fault</span>
-                            <span class="highlight-label">Tolerance</span>
-                        </div>
-                    </div>
-                    <div class="project-github">
-                        <a href="https://github.com/asish-kun/replicated-concurrency-control" target="_blank" class="github-link">
-                            <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
-                            <span class="arrow-icon">↗</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-description-full-width">
-                    <div class="project-description">
-                        <p class="project-description-point">
-                            Built a distributed database in C++ with serializable snapshot isolation, utilizing Multi-Version Read Consistency. Implemented fault-tolerant replication using Available Copies algorithm and lock-free transaction commits.
-                        </p>
-                        <p class="project-description-point">
-                            Advanced distributed systems project with sophisticated concurrency control mechanisms for handling concurrent transactions across multiple sites.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project 5 - Sales Simulation with Neural Networks -->
-        <section class="project-section">
-            <div class="background-circle-base background-circle-left-2"></div>
-            <div class="project-container-left">
-                <div class="project-showcase">
-                    <div class="showcase-grid-4">
-                        <div class="showcase-item grid-4-item1">
-                            <img src="assets/images/RA/Group 1.png" alt="EcoTrack main dashboard">
-                        </div>
-                        <!-- <div class="showcase-item grid-4-item2">
-                            <img src="assets/images/hero-image.jpg" alt="EcoTrack metrics">
-                        </div> -->
-                        <div class="showcase-item grid-4-item3">
-                            <img src="assets/images/RA/Group 2.png" alt="EcoTrack reports">
-                        </div>
-                        <div class="showcase-item grid-4-item4">
-                            <img src="assets/images/RA/Group 3.png" alt="EcoTrack mobile">
-                        </div>
-                    </div>
-                </div>
-                <div class="project-info-left">
-                    <div class="project-header">
-                        <h2 class="project-title">Can LLMs crack code Research Study</h2>
-                        <h3 class="project-subtitle">Penn State Research</h3>
-                    </div>
-                    <div class="tech-stack-grid">
-                        <span class="tech-item">ReactJS</span>
-                        <span class="tech-item">Django</span>
-                        <span class="tech-item">SQL Lite</span>
-                        <span class="tech-item">D3.js</span>
-                        <span class="tech-item">NLP Model</span>
-                        <span class="tech-item">OpenAI</span>
-                        <span class="tech-item">CoPilot</span>
-                        <span class="tech-item">Claude</span>
-                        <span class="tech-item">DeepSeek</span>
-                        <span class="tech-item">Perplexity</span>
-                        <span class="tech-item">Gemini</span>
-                        <span class="tech-item">Research Study</span>
-                        <span class="tech-item">Google Colab</span>
-                    </div>
-                    <div class="kaana-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-number">6</span>
-                            <span class="highlight-label">LLMs Evaluated</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">NLP</span>
-                            <span class="highlight-label">Research</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">Academic</span>
-                            <span class="highlight-label">Portal</span>
-                        </div>
-                    </div>
-                    <div class="project-github">
-                        <a href="https://www.linkedin.com/in/asish-nelapati/details/projects/1743399175401/single-media-viewer/?profileId=ACoAADGEv0oBGakwrLYUx1ZInip8EzS9WF-deOE"
-                            target="_blank" class="github-link">
-                            <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
-                            <span class="arrow-icon">↗</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-description-full-width">
-                    <div class="project-description">
-                        <p class="project-description-point">
-                            Published a research paper assessing 6 major LLMs on their code generation capabilities, comparing results runtime, memory, time and space complexity assessing their performance based on structured LeetCode problems ranging from easy to hard.
-                        </p>
-                        <p class="project-description-point">
-                            Built an academic portal for students to submit their assignments to generate keyword graphs helping them assess their assignment comparing it to what professor is looking for. It is also useful for professors in reducing grading time evaluating keyword graphs.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project 6 - NBA Game Prediction Model (Full Width, No Images) -->
-        <section class="project-section">
-            <div class="background-circle-base background-circle-right-3"></div>
-            <div class="project-container-full-width">
-                <div class="project-info-center">
-                    <div class="project-header">
-                        <h2 class="project-title">NBA Game Prediction Model</h2>
-                        <h3 class="project-subtitle">Penn State University</h3>
-                    </div>
-                    <div class="tech-stack-grid">
-                        <span class="tech-item">Python</span>
-                        <span class="tech-item">Machine Learning</span>
-                        <span class="tech-item">Scikit-learn</span>
-                        <span class="tech-item">Pandas</span>
-                        <span class="tech-item">NumPy</span>
-                        <span class="tech-item">Data Analysis</span>
-                        <span class="tech-item">Feature Engineering</span>
-                        <span class="tech-item">Ensemble Methods</span>
-                    </div>
-                    <div class="kaana-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-number">94.5%</span>
-                            <span class="highlight-label">Accuracy</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">26K+</span>
-                            <span class="highlight-label">Games</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">ML</span>
-                            <span class="highlight-label">Ensemble</span>
-                        </div>
-                    </div>
-                    <div class="project-github">
-                        <a href="https://github.com/asish-kun/NBA-Game-Prediction-Model" target="_blank" class="github-link">
-                            <img src="assets/icons/github.png" alt="GitHub" class="github-icon">
-                            <span class="arrow-icon">↗</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-description-full-width">
-                    <div class="project-description">
-                        <p class="project-description-point">
-                            Engineered a machine learning model to predict NBA game outcomes on 26K+ games to achieve 94.5% accuracy. Implemented advanced feature engineering and ensemble methods to analyze player statistics, team performance, and historical data.
-                        </p>
-                        <p class="project-description-point">
-                            Built comprehensive data pipeline for processing NBA statistics and game data. Developed sophisticated prediction system with high accuracy for game outcome forecasting.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-
-    <!-- Articles Section -->
-    <!-- <section class="articles-section" id="articles">
-        <h2 class="section-title">Articles</h2>
-
-        <div class="articles-container">
-            <div class="page-numbers">
-                <div class="page-number active">1</div>
-                <div class="page-number">2</div>
-                <div class="nav-arrow down-arrow">↓</div>
-                <div class="nav-arrow up-arrow hidden">↑</div>
-            </div>
-
-            <div class="articles-grid">
-                <div class="article-card" data-page="1">
-                    <div class="article-content">
-                        <h3>The simplest example is kafka + golang</h3>
-                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
-                            Golang and Docker.</p>
-                        <div class="article-footer">
-                            <a href="#" class="read-more">Read more →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card" data-page="1">
-                    <div class="article-content">
-                        <h3>The simplest example is kafka + golang</h3>
-                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
-                            Golang and Docker.</p>
-                        <div class="article-footer">
-                            <a href="#" class="read-more">Read more →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card" data-page="1">
-                    <div class="article-content">
-                        <h3>The simplest example is kafka + golang</h3>
-                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
-                            Golang and Docker.</p>
-                        <div class="article-footer">
-                            <a href="#" class="read-more">Read more →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card" data-page="1">
-                    <div class="article-content">
-                        <h3>The simplest example is kafka + golang</h3>
-                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
-                            Golang and Docker.</p>
-                        <div class="article-footer">
-                            <a href="#" class="read-more">Read more →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card" data-page="2">
-                    <div class="article-content">
-                        <h3>AI Stock Investment Advisor</h3>
-                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
-                            Golang and Docker.</p>
-                        <div class="article-footer">
-                            <a href="#" class="read-more">Read more →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card" data-page="2">
-                    <div class="article-content">
-                        <h3>AI Stock Investment Advisor</h3>
-                        <p>This article presents a simple way to implement a micro-service architecture using Kafka,
-                            Golang and Docker.</p>
-                        <div class="article-footer">
-                            <a href="#" class="read-more">Read more →</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>  -->
-
-    <!-- Contacts Section -->
-    <section class="contacts-section" id="contacts">
-        <div class="contacts-wrapper">
-            <div class="name-title-container">
-                <h2 class="name-line">Asish</h2>
-                <h2 class="title-line">
-                    <span class="role-text">
-                        <span class="role-line">Full-stack</span>
-                        <span class="role-line">Developer</span>
-                    </span> Nelapati
-                </h2>
-            </div>
-
-            <div class="contacts-info">
-                <h3 class="section-title">/Contacts</h3>
-
-                <!-- Horizontal nav menu -->
-                <nav class="contacts-nav">
-                    <ul>
-                        <li><a href="#about" class="nav-item">About</a></li>
-                        <li><a href="#projects" class="nav-item">Projects</a></li>
-                        <li><a href="#contacts" class="nav-item">Contacts</a></li>
-                    </ul>
-                </nav>
-
-                <!-- About this site block with large corner radius -->
-                <div class="about-site-tile">
-                    <h4>About This Site</h4>
-                    <div class="site-info">
-                        <p>Handcrafted by Myself</p>
-                        <p>Simple Website built on HTML/ CSS & JS</p>
-                        <p>Hosted on Github</p>
-                        <br>
-                        <p>Designed by Taisia /</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Social media links in a single line, left aligned -->
-        <div class="contacts-social">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/asish-nelapati/" target="_blank" class="social-button">
-                    <img src="assets/icons/linkedin.png" alt="LinkedIn Logo" class="social-icon" />
-                    <span class="social-text">LinkedIn</span>
-                </a>
-                <a href="https://github.com/asish-kun" target="_blank" class="social-button">
-                    <img src="assets/icons/github.png" alt="GitHub Logo" class="social-icon" />
-                    <span class="social-text">GitHub</span>
-                </a>
-                <a href="https://www.instagram.com/ashish_mickey/" target="_blank" class="social-button">
-                    <img src="assets/icons/instagram.png" alt="Instagram Logo" class="social-icon" />
-                    <span class="social-text">Instagram</span>
-                </a>
-                <a href="https://www.youtube.com/@ashall_amv" target="_blank" class="social-button">
-                    <img src="assets/icons/youtube.png" alt="YouTube Logo" class="social-icon" />
-                    <span class="social-text">YouTube</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <div class="image-viewer-overlay" id="imageViewer">
-        <div class="image-viewer-container">
-            <span class="viewer-close-btn">&times;</span>
-            <div class="nav-arrow prev-arrow">&#10094;</div>
-            <div class="nav-arrow next-arrow">&#10095;</div>
-            <img class="fullscreen-image" src="" alt="Full screen image">
+    <!-- Mobile menu -->
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+        <nav class="menu-links" aria-label="Mobile">
+            <a href="#work" class="menu-link"><span>01</span>Work</a>
+            <a href="#about" class="menu-link"><span>02</span>About</a>
+            <a href="#experience" class="menu-link"><span>03</span>Experience</a>
+            <a href="#contact" class="menu-link"><span>04</span>Contact</a>
+        </nav>
+        <div class="menu-foot">
+            <a href="mailto:asish.nelapati@gmail.com">asish.nelapati@gmail.com</a>
         </div>
     </div>
 
+    <main id="top">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <p class="hero-eyebrow" data-reveal>
+                    <span class="eyebrow-dot" aria-hidden="true"></span>
+                    <span class="scramble">Founding Engineer — AI Systems &times; Full-Stack</span>
+                </p>
+                <h1 class="hero-title" aria-label="Asish Nelapati">
+                    <span class="hero-line"><span class="hero-line-inner">ASISH</span></span>
+                    <span class="hero-line hero-line--outline"><span class="hero-line-inner">NELAPATI</span></span>
+                </h1>
+                <div class="hero-sub" data-reveal>
+                    <p class="hero-rotator-line">
+                        Building <span class="hero-rotator"><span id="rotatorWord">AI agents</span></span> that ship.
+                    </p>
+                    <p class="hero-statement">
+                        I take products from zero to production — and obsess over
+                        the milliseconds in between.
+                    </p>
+                </div>
+                <div class="hero-ctas" data-reveal>
+                    <a href="#work" class="btn btn--solid" data-hover data-magnetic>View selected work
+                        <span class="btn-arrow">↓</span></a>
+                    <a href="#contact" class="btn btn--ghost" data-hover data-magnetic>Get in touch</a>
+                </div>
+                <div class="hero-meta" data-reveal>
+                    <span class="hero-meta-item">Currently — Team Lead @ Kaana · Seattle, WA</span>
+                    <span class="hero-meta-item hero-meta-item--right">Scroll <span class="scroll-line"></span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>AI Agents</span><i>✦</i><span>Local Data</span><i>✦</i><span>Search &amp;
+                    Ranking</span><i>✦</i><span>Distributed Databases</span><i>✦</i><span>Mobile
+                    Apps</span><i>✦</i><span>Cloud Infrastructure</span><i>✦</i>
+                <span>AI Agents</span><i>✦</i><span>Local Data</span><i>✦</i><span>Search &amp;
+                    Ranking</span><i>✦</i><span>Distributed Databases</span><i>✦</i><span>Mobile
+                    Apps</span><i>✦</i><span>Cloud Infrastructure</span><i>✦</i>
+            </div>
+        </div>
+
+        <!-- ============ FEATURED WORK — KAANA ============ -->
+        <section class="section section--work" id="work">
+            <div class="section-head" data-reveal>
+                <span class="section-index">01</span>
+                <h2 class="section-label scramble">Selected Work</h2>
+                <span class="section-ghost" aria-hidden="true">01</span>
+            </div>
+
+            <article class="kaana">
+                <div class="kaana-head" data-reveal>
+                    <img src="assets/site/kaana-icon.png" alt="" class="kaana-logo" width="72" height="72" />
+                    <div class="kaana-head-text">
+                        <h3 class="kaana-title">KAANA</h3>
+                        <p class="kaana-role">Founding Engineer → Team Lead <span class="dot-sep">·</span> Jun
+                            2025 — Present</p>
+                    </div>
+                    <p class="kaana-tagline">Meet Ana — an AI dining agent for Hawai'i. Ask anything, from
+                        tonight's happy hours to what's actually in the dish, and explore the islands on a
+                        map that thinks local. Live on iOS &amp; Android.</p>
+                </div>
+
+                <div class="kaana-stage">
+                    <div class="kaana-screen kaana-screen--near" data-parallax="-8">
+                        <img src="assets/site/kaana-explore-v2.webp"
+                            alt="Kaana Explore — Hawai'i map with rated local restaurants" loading="lazy" />
+                    </div>
+                    <div class="kaana-phone" data-parallax="4">
+                        <video class="kaana-video" id="kaanaVideo" playsinline muted loop preload="none"
+                            poster="assets/site/kaana-intro-poster.webp"
+                            aria-label="Ana, Kaana's AI dining agent — screen recording">
+                            <source src="assets/site/kaana-ana-recording-2.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="kaana-screen kaana-screen--near kaana-screen--right" data-parallax="-8">
+                        <img src="assets/site/kaana-profile-v2.webp"
+                            alt="Kaana Collections — saved spots and shared lists" loading="lazy" />
+                    </div>
+                </div>
+
+                <div class="kaana-body">
+                    <div class="kaana-copy" data-reveal>
+                        <p>
+                            I built Ka'ana from scratch — auth, REST APIs on EC2, Postgres design and
+                            indexing, Redis caching, Docker, CI/CD, and PostHog observability — over data
+                            aggregated from 5,000+ restaurants via scraping and partner APIs. Launch traffic
+                            arrived at three times the projected load; the platform served it without
+                            downtime. Nine months in, I was promoted to lead the team of six.
+                        </p>
+                        <p>
+                            Ana's search is semantic: pgvector embeddings with a LangChain + Gemini agent
+                            that tool-calls SQL filters, re-ranked against a per-user preference vector that
+                            updates after every conversation. Video is auto-tagged with AWS Rekognition and
+                            starts in under a second over HLS + CloudFront — down from 2–3 seconds.
+                        </p>
+                        <div class="kaana-ctas">
+                            <a href="https://apps.apple.com/us/app/kaana/id6749241835" target="_blank"
+                                rel="noopener" class="btn btn--solid" data-hover data-magnetic>
+                                <svg width="15" height="15" viewBox="0 0 384 512" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                                </svg>
+                                App Store</a>
+                            <a href="https://www.kaana.app" target="_blank" rel="noopener" class="btn btn--ghost"
+                                data-hover data-magnetic>kaana.app <span class="btn-arrow">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="kaana-stats" data-reveal>
+                        <div class="stat">
+                            <span class="stat-number" data-count="10" data-suffix="K+">10K+</span>
+                            <span class="stat-label">Users in year one</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="5" data-suffix="K+">5K+</span>
+                            <span class="stat-label">Restaurants indexed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="3" data-suffix="×">3×</span>
+                            <span class="stat-label">Projected load, zero downtime</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="1" data-prefix="&lt;" data-suffix="s">&lt;1s</span>
+                            <span class="stat-label">Video time-to-first-frame</span>
+                        </div>
+                    </div>
+                </div>
+
+                <figure class="kaana-store panel" data-reveal>
+                    <a href="https://apps.apple.com/us/app/kaana/id6749241835" target="_blank" rel="noopener"
+                        class="kaana-store-grid" data-hover aria-label="Kaana on the App Store">
+                        <img src="assets/site/kaana-store-1.jpg"
+                            alt="Decide where to eat now — Ana picks the one place worth it" loading="lazy" />
+                        <img src="assets/site/kaana-store-2.jpg"
+                            alt="Explore Hawai'i's map and eat where the island actually eats" loading="lazy" />
+                        <img src="assets/site/kaana-store-3.jpg"
+                            alt="Collect your favorite finds and share them with your crew" loading="lazy" />
+                    </a>
+                    <figcaption class="panel-caption">On the App Store — Food &amp; Drink</figcaption>
+                </figure>
+            </article>
+
+            <!-- ============ PROJECTS ============ -->
+            <div class="projects">
+
+                <!-- 01 AI-BDR -->
+                <article class="project" data-reveal>
+                    <div class="project-visual">
+                        <div class="frame frame--browser" data-hover>
+                            <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">ai-bdr.app</span></div>
+                            <img src="assets/site/bdr-dashboard.jpg" alt="AI-BDR platform dashboard" loading="lazy" />
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-index">01</span>
+                        <h3 class="project-title">AI-BDR Platform</h3>
+                        <p class="project-sub">Bamboo Rose — AI Engineer Intern</p>
+                        <p class="project-desc">
+                            An agentic outreach pipeline: LangGraph + CrewAI agents over a Pinecone +
+                            Supabase vector store research each target and draft personalized emails and
+                            AI pitch videos — turning a 45-minute manual task into under 5 minutes per lead.
+                        </p>
+                        <ul class="project-tech">
+                            <li>LangGraph</li><li>CrewAI</li><li>Pinecone</li><li>Supabase</li><li>Flask</li><li>React</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 02 AI Stock Advisor -->
+                <article class="project project--flip" data-reveal>
+                    <div class="project-visual">
+                        <div class="frame frame--browser" data-hover>
+                            <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">ai-stock-advisor.app</span>
+                            </div>
+                            <img src="assets/site/stock-details.jpg" alt="AI Stock Advisor — stock details page"
+                                loading="lazy" />
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-index">02</span>
+                        <h3 class="project-title">AI Stock Advisor</h3>
+                        <p class="project-sub">Graduate Capstone</p>
+                        <p class="project-desc">
+                            A financial copilot that fine-tunes Llama on SEC filings and news, then grounds
+                            every answer with RAG and live market data. Containerized and deployed on Azure.
+                        </p>
+                        <ul class="project-tech">
+                            <li>Llama</li><li>RAG</li><li>LangChain</li><li>NVIDIA NIM</li><li>React</li><li>Docker</li>
+                        </ul>
+                        <a href="https://github.com/asish-kun/AI-Stock-Advisor" target="_blank" rel="noopener"
+                            class="project-link" data-hover>GitHub <span class="btn-arrow">↗</span></a>
+                    </div>
+                </article>
+
+                <!-- 03 MediBuddy -->
+                <article class="project" data-reveal>
+                    <div class="project-visual">
+                        <div class="phone-row panel" data-hover>
+                            <div class="frame frame--phone"><img src="assets/site/medibuddy-1.png"
+                                    alt="MediBuddy home screen" loading="lazy" /></div>
+                            <div class="frame frame--phone"><img src="assets/site/medibuddy-2.png"
+                                    alt="MediBuddy services screen" loading="lazy" /></div>
+                            <div class="frame frame--phone"><img src="assets/site/medibuddy-3.png"
+                                    alt="MediBuddy health screen" loading="lazy" /></div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-index">03</span>
+                        <h3 class="project-title">Real-Time Delivery Tracking</h3>
+                        <p class="project-sub">MediBuddy — Software Development Engineer</p>
+                        <p class="project-desc">
+                            Live delivery tracking and Google Maps pinning for one of India's largest
+                            healthcare platforms (30M+ users). An automated driver route-scheduling system,
+                            iterated on driver feedback, lifted delivery rate by 30% — and migrating legacy
+                            REST endpoints to GraphQL cut latency by 60%.
+                        </p>
+                        <ul class="project-tech">
+                            <li>Java</li><li>Kotlin</li><li>GraphQL</li><li>Apollo</li><li>Google Maps</li><li>Firebase</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 04 Replicated Concurrency Control -->
+                <article class="project project--flip" data-reveal>
+                    <div class="project-visual">
+                        <div class="frame frame--terminal panel" data-hover>
+                            <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">repcrec — zsh</span></div>
+                            <pre class="terminal-body"><code><span class="t-dim">$</span> ./repcrec --sites 10 --tx batch_07
+<span class="t-ok">[T3]</span> begin → R(x4)@site2 <span class="t-dim">…</span> OK <span class="t-dim">(MVCC snapshot v12)</span>
+<span class="t-warn">[site5]</span> failure detected — reads rerouted to available copies
+<span class="t-ok">[T3]</span> W(x8) → commit ✓ <span class="t-dim">serializable · zero locks held</span>
+<span class="t-ok">[site5]</span> recovered → catch-up sync complete</code></pre>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-index">04</span>
+                        <h3 class="project-title">Replicated Concurrency Control</h3>
+                        <p class="project-sub">Penn State — Distributed Systems</p>
+                        <p class="project-desc">
+                            A distributed database engine in C++ across ten replicated sites: serializable
+                            snapshot isolation via MVCC, available-copies replication, and lock-free
+                            commits. Kill a site mid-transaction and reads reroute to live copies —
+                            recovery catches the site back up without breaking serializability.
+                        </p>
+                        <ul class="project-tech">
+                            <li>C++</li><li>MVCC</li><li>Replication</li><li>Fault Tolerance</li>
+                        </ul>
+                        <a href="https://github.com/asish-kun/replicated-concurrency-control" target="_blank"
+                            rel="noopener" class="project-link" data-hover>GitHub <span class="btn-arrow">↗</span></a>
+                    </div>
+                </article>
+
+                <!-- 05 LLM Research -->
+                <article class="project" data-reveal>
+                    <div class="project-visual">
+                        <div class="chart-card panel" data-hover>
+                            <p class="chart-title">Success rate — hard LeetCode problems</p>
+                            <div class="chart-rows">
+                                <div class="chart-row"><span class="chart-name">Copilot</span>
+                                    <div class="chart-bar"><i style="--w:98%"></i></div><span class="chart-val">98%</span>
+                                </div>
+                                <div class="chart-row"><span class="chart-name">DeepSeek</span>
+                                    <div class="chart-bar"><i style="--w:96%"></i></div><span class="chart-val">96%</span>
+                                </div>
+                                <div class="chart-row"><span class="chart-name">GPT</span>
+                                    <div class="chart-bar"><i style="--w:90%"></i></div><span class="chart-val">90%</span>
+                                </div>
+                                <div class="chart-row"><span class="chart-name">Gemini</span>
+                                    <div class="chart-bar"><i style="--w:68%"></i></div><span class="chart-val">68%</span>
+                                </div>
+                            </div>
+                            <p class="chart-foot">6 LLMs · runtime, memory &amp; complexity benchmarks</p>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-index">05</span>
+                        <h3 class="project-title">Can LLMs Crack the Code?</h3>
+                        <p class="project-sub">Penn State — Published Research</p>
+                        <p class="project-desc">
+                            Benchmarked six LLMs on structured LeetCode problems across runtime, memory,
+                            and time-space complexity — a published study of where generated code actually
+                            holds up.
+                        </p>
+                        <ul class="project-tech">
+                            <li>Python</li><li>NLP</li><li>LLM Evals</li><li>Docker</li>
+                        </ul>
+                        <a href="assets/images/Research%20Work/LLM%20Research/Can%20LLMs%20Crack%20the%20Code%20An%20Analysis%20of%20Performance%20and%20Complexity%20in%20LeetCode%20Problems-Final.pdf"
+                            target="_blank" rel="noopener" class="project-link" data-hover>Read the paper
+                            <span class="btn-arrow">↗</span></a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="section section--about" id="about">
+            <div class="section-head" data-reveal>
+                <span class="section-index">02</span>
+                <h2 class="section-label scramble">About</h2>
+                <span class="section-ghost" aria-hidden="true">02</span>
+            </div>
+            <div class="about-grid">
+                <figure class="about-portrait" data-reveal>
+                    <img src="assets/site/portrait.jpg"
+                        alt="Asish Nelapati at The Vessel, Hudson Yards, New York" loading="lazy" />
+                    <figcaption class="panel-caption">NYC — where the food research never ends</figcaption>
+                </figure>
+                <div class="about-text">
+                    <p class="about-lead" data-reveal>
+                        I'm Asish — an engineer who likes owning the whole stack.
+                    </p>
+                    <p data-reveal>
+                        Over the last five years I've shipped features to platforms serving 30M+ customers,
+                        taken a founding-team AI product from zero to 10,000+ users in its first year, and
+                        earned the promotion to lead the team that builds it. The common thread: systems
+                        that stay fast, honest, and maintainable under real-world load.
+                    </p>
+                    <p data-reveal>
+                        Away from the keyboard I'm usually chasing good food — which, conveniently,
+                        is also my day job.
+                    </p>
+                    <div class="skills" data-reveal>
+                        <div class="skill">
+                            <h4>AI &amp; ML</h4>
+                            <p>LangGraph · LangChain · CrewAI · RAG · Embeddings · pgvector · Pinecone ·
+                                Tool-calling · MCP · LLM Evals</p>
+                        </div>
+                        <div class="skill">
+                            <h4>Backend &amp; Cloud</h4>
+                            <p>Flask · FastAPI · Node.js · GraphQL · AWS · PostgreSQL · MySQL · Redis ·
+                                Supabase · Docker · Prometheus</p>
+                        </div>
+                        <div class="skill">
+                            <h4>Frontend &amp; Mobile</h4>
+                            <p>React · React Native · Next.js · Redux · Kotlin · Java · Firebase</p>
+                        </div>
+                        <div class="skill">
+                            <h4>Languages</h4>
+                            <p>Python · TypeScript · JavaScript · SQL · Java · Kotlin · C++</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIENCE ============ -->
+        <section class="section section--exp" id="experience">
+            <div class="section-head" data-reveal>
+                <span class="section-index">03</span>
+                <h2 class="section-label scramble">Experience</h2>
+                <span class="section-ghost" aria-hidden="true">03</span>
+            </div>
+            <div class="exp-list">
+                <div class="exp-row exp-row--current" data-reveal data-hover>
+                    <span class="exp-dates">Jun 2025 — Present</span>
+                    <div class="exp-main">
+                        <h3 class="exp-company"><img src="assets/site/kaana-icon.png" alt="" class="exp-icon"
+                                width="28" height="28" />Ka'ana AI</h3>
+                        <p class="exp-role">Founding Engineer → Team Lead</p>
+                    </div>
+                    <span class="exp-stack">Flask · FastAPI · TypeScript · AWS · LangChain · LangGraph · Redis ·
+                        Docker</span>
+                </div>
+                <div class="exp-row" data-reveal data-hover>
+                    <span class="exp-dates">May 2024 — Aug 2024</span>
+                    <div class="exp-main">
+                        <h3 class="exp-company">Bamboo Rose</h3>
+                        <p class="exp-role">AI Engineer Intern</p>
+                    </div>
+                    <span class="exp-stack">Flask · LangGraph · CrewAI · Pinecone · Supabase · React</span>
+                </div>
+                <div class="exp-row" data-reveal data-hover>
+                    <span class="exp-dates">Sep 2023 — May 2025</span>
+                    <div class="exp-main">
+                        <h3 class="exp-company">Penn State University</h3>
+                        <p class="exp-role">Graduate Research Assistant</p>
+                    </div>
+                    <span class="exp-stack">TypeScript · Node.js · Docker · NLP</span>
+                </div>
+                <div class="exp-row" data-reveal data-hover>
+                    <span class="exp-dates">Jun 2022 — May 2023</span>
+                    <div class="exp-main">
+                        <h3 class="exp-company">MediBuddy</h3>
+                        <p class="exp-role">Software Development Engineer</p>
+                    </div>
+                    <span class="exp-stack">Java · Kotlin · Node.js · GraphQL · Apollo · Firebase · Crashlytics</span>
+                </div>
+                <div class="exp-row" data-reveal data-hover>
+                    <span class="exp-dates">Jul 2021 — Jun 2022</span>
+                    <div class="exp-main">
+                        <h3 class="exp-company">Blue Yonder</h3>
+                        <p class="exp-role">Backend Engineer</p>
+                    </div>
+                    <span class="exp-stack">Node.js · MySQL · AWS · Microservices</span>
+                </div>
+                <div class="exp-row" data-reveal data-hover>
+                    <span class="exp-dates">2021</span>
+                    <div class="exp-main">
+                        <h3 class="exp-company">WILP</h3>
+                        <p class="exp-role">Frontend Developer</p>
+                    </div>
+                    <span class="exp-stack">React · Bootstrap · PostgreSQL</span>
+                </div>
+            </div>
+            <p class="exp-total" data-reveal>5 years — and counting.</p>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="section section--contact" id="contact">
+            <div class="section-head" data-reveal>
+                <span class="section-index">04</span>
+                <h2 class="section-label scramble">Contact</h2>
+                <span class="section-ghost" aria-hidden="true">04</span>
+            </div>
+            <h2 class="contact-title" aria-label="Let's build something exciting">
+                <span class="hero-line"><span class="hero-line-inner">LET'S BUILD</span></span>
+                <span class="hero-line hero-line--outline"><span class="hero-line-inner">SOMETHING
+                        EXCITING<span class="accent">.</span></span></span>
+            </h2>
+            <p class="contact-line" data-reveal>
+                Open to interesting problems, good coffee, and better food recommendations.
+            </p>
+            <div class="contact-ctas" data-reveal>
+                <a href="mailto:asish.nelapati@gmail.com" class="btn btn--solid btn--big" id="emailBtn"
+                    data-hover data-magnetic><span id="emailBtnText">asish.nelapati@gmail.com</span></a>
+                <p class="contact-hint">Click to copy</p>
+            </div>
+            <div class="contact-socials" data-reveal>
+                <a href="https://www.linkedin.com/in/asish-nelapati/" target="_blank" rel="noopener"
+                    class="social" data-hover>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                    </svg>LinkedIn</a>
+                <a href="https://github.com/asish-kun" target="_blank" rel="noopener" class="social" data-hover>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.56v-2.17c-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.7 0-1.25.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.09 0 4.43-2.69 5.4-5.25 5.69.41.35.77 1.04.77 2.1v3.12c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z" />
+                    </svg>GitHub</a>
+                <a href="https://www.instagram.com/ashish_mickey/" target="_blank" rel="noopener" class="social"
+                    data-hover>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" />
+                    </svg>Instagram</a>
+                <a href="https://www.youtube.com/@ashall_amv" target="_blank" rel="noopener" class="social"
+                    data-hover>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z" />
+                    </svg>YouTube</a>
+            </div>
+            <footer class="footer">
+                <p>© 2026 Asish Nelapati — Seattle, WA</p>
+                <p>Designed &amp; built by hand — vanilla HTML/CSS/JS, hosted on GitHub Pages.</p>
+                <a href="#top" class="footer-top" data-hover>Back to top ↑</a>
+            </footer>
+        </section>
+    </main>
 
     <script src="script.js" defer></script>
-
 </body>
 
 </html>
