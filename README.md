@@ -8,7 +8,7 @@ single-page site built by hand with vanilla HTML/CSS/JS. No frameworks, no build
 ## Design
 
 - Single committed dark theme with a papaya-orange accent
-- Display type: [Anton](https://fonts.google.com/specimen/Anton) · body: Noto Serif · labels: JetBrains Mono
+- Display type: [Anton](https://fonts.google.com/specimen/Anton) · body: Space Grotesk · labels: JetBrains Mono
 - Momentum smooth-scrolling (desktop wheel), scroll-driven reveals, parallax phone stage,
   magnetic buttons, custom cursor — all vanilla JS, all disabled under `prefers-reduced-motion`
 - Consistent visual system for project media: browser frames, phone frames,

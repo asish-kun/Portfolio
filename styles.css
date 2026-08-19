@@ -1,5 +1,5 @@
 /* ============================================================
-   ASISH NELAPATI — PORTFOLIO
+   ASISH NELAPATI, PORTFOLIO
    Dark cinematic theme. Vanilla CSS. No build step.
    ============================================================ */
 
@@ -17,7 +17,7 @@
     --hairline-strong: rgba(255, 255, 255, 0.14);
 
     --font-display: "Anton", Impact, sans-serif;
-    --font-body: "Noto Serif", Georgia, "Times New Roman", serif;
+    --font-body: "Space Grotesk", system-ui, -apple-system, sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
     --pad: clamp(1.25rem, 4vw, 4rem);
@@ -579,7 +579,9 @@ body.menu-open .menu-link:nth-child(4) { transition-delay: 0.26s; }
     display: inline-block;
     color: var(--accent);
     white-space: nowrap;
-    transition: width 0.35s var(--ease-out);
+    /* Must finish inside the 280ms out-animation, so the incoming word
+       always lands in a box that is already wide enough for it. */
+    transition: width 0.24s var(--ease-out);
 }
 
 #rotatorWord {
@@ -700,17 +702,28 @@ body.menu-open .menu-link:nth-child(4) { transition-delay: 0.26s; }
     padding: 1.25rem clamp(1.8rem, 4vw, 2.8rem);
 }
 
+/* SVG rather than a glyph: iOS renders ↗/↓ as colour emoji. */
 .btn-arrow {
-    font-family: var(--font-body);
+    flex-shrink: 0;
     transition: transform 0.3s var(--ease-out);
 }
 
-.btn:hover .btn-arrow {
+.btn:hover .btn-arrow,
+.project-link:hover .btn-arrow {
     transform: translate(2px, -2px);
 }
 
 .btn--solid:hover .btn-arrow {
     transform: translateY(3px);
+}
+
+.footer-top svg {
+    vertical-align: -1px;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.footer-top:hover svg {
+    transform: translateY(-2px);
 }
 
 /* ---------- Marquee ---------- */

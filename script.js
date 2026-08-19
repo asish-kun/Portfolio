@@ -1,5 +1,5 @@
 // ============================================================
-// ASISH NELAPATI — PORTFOLIO
+// ASISH NELAPATI, PORTFOLIO
 // Vanilla JS: smooth scroll, reveals, parallax, cursor, rotator
 // ============================================================
 
@@ -28,7 +28,7 @@
     }
 
     // ---------- Scramble/decode effect ----------
-    const GLYPHS = '#/<>[]{}=+*^?_—01';
+    const GLYPHS = '#/<>[]{}=+*^?_01';
     const scramble = (el) => {
         if (reduceMotion || el.dataset.decoded) return;
         el.dataset.decoded = '1';
@@ -213,20 +213,24 @@
 
     if (rotator && !reduceMotion) {
         const holder = rotator.parentElement; // .hero-rotator
-        // Reserve the widest word once so the trailing text never shifts
-        // or collides as words swap.
-        const setWidth = () => {
-            const probe = rotator.cloneNode(true);
+        // Size the holder to the word actually showing, measured off-flow so
+        // the running text sits snug against it and glides as words swap.
+        const measure = (word) => {
+            const probe = rotator.cloneNode(false);
+            probe.removeAttribute('id'); // avoid a duplicate id while attached
+            probe.textContent = word;
+            // Match the live element's own display, which the id selector
+            // supplies, or the probe measures narrower than it renders.
             probe.style.cssText =
-                'position:absolute;visibility:hidden;white-space:nowrap;';
+                'position:absolute;visibility:hidden;white-space:nowrap;' +
+                'display:inline-block;';
             holder.appendChild(probe);
-            let max = 0;
-            words.forEach((w) => {
-                probe.textContent = w;
-                max = Math.max(max, probe.getBoundingClientRect().width);
-            });
+            const w = probe.getBoundingClientRect().width;
             probe.remove();
-            holder.style.width = `${Math.ceil(max)}px`;
+            return Math.ceil(w);
+        };
+        const setWidth = () => {
+            holder.style.width = `${measure(words[wordIdx])}px`;
         };
         if (document.fonts?.ready) {
             document.fonts.ready.then(setWidth);
@@ -236,13 +240,19 @@
         window.addEventListener('resize', setWidth);
 
         setInterval(() => {
+            const nextIdx = (wordIdx + 1) % words.length;
+            const nextW = measure(words[nextIdx]);
+            const grows = nextW > holder.getBoundingClientRect().width;
+            // Grow before the swap so the incoming word has room; shrink only
+            // after it, so the outgoing word is never clipped either.
+            if (grows) holder.style.width = `${nextW}px`;
             rotator.classList.add('swap-out');
             setTimeout(() => {
-                wordIdx = (wordIdx + 1) % words.length;
+                wordIdx = nextIdx;
                 rotator.textContent = words[wordIdx];
+                if (!grows) holder.style.width = `${nextW}px`;
                 rotator.classList.remove('swap-out');
                 rotator.classList.add('swap-in');
-                setWidth();
                 setTimeout(() => rotator.classList.remove('swap-in'), 380);
             }, 280);
         }, 2600);
@@ -370,7 +380,7 @@
         };
 
         const mailtoFallback = (message, from) => {
-            const body = encodeURIComponent(`${message}\n\n— ${from}`);
+            const body = encodeURIComponent(`${message}\n\nFrom: ${from}`);
             window.location.href =
                 `mailto:asish.nelapati@gmail.com?subject=${
                     encodeURIComponent('Note from your portfolio')}&body=${body}`;
@@ -414,9 +424,9 @@
                 });
                 if (!res.ok) throw new Error(res.status);
                 noteForm.reset();
-                setStatus('Sent — thanks, I\'ll get back to you soon.', 'ok');
+                setStatus('Sent, thanks. I\'ll get back to you soon.', 'ok');
             } catch {
-                setStatus('Couldn\'t send from here — opening your mail app…', 'err');
+                setStatus('Couldn\'t send from here, opening your mail app instead.', 'err');
                 mailtoFallback(message, from);
             } finally {
                 sendBtn.disabled = false;
@@ -437,7 +447,7 @@
         const videoObs = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    video.play().catch(() => { /* autoplay blocked — poster stays */ });
+                    video.play().catch(() => { /* autoplay blocked, poster stays */ });
                 } else {
                     video.pause();
                 }
@@ -459,7 +469,7 @@
             dot.style.top = `${my}px`;
         }, { passive: true });
 
-        // Trailing blob squashes along its direction of travel —
+        // Trailing blob squashes along its direction of travel:
         // fast flicks stretch it, settling relaxes it back to a circle.
         const ringLoop = () => {
             const dx = mx - rx;
