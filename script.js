@@ -213,14 +213,27 @@
 
     if (rotator && !reduceMotion) {
         const holder = rotator.parentElement; // .hero-rotator
+        // Reserve the widest word once so the trailing text never shifts
+        // or collides as words swap.
         const setWidth = () => {
-            holder.style.width = `${rotator.getBoundingClientRect().width}px`;
+            const probe = rotator.cloneNode(true);
+            probe.style.cssText =
+                'position:absolute;visibility:hidden;white-space:nowrap;';
+            holder.appendChild(probe);
+            let max = 0;
+            words.forEach((w) => {
+                probe.textContent = w;
+                max = Math.max(max, probe.getBoundingClientRect().width);
+            });
+            probe.remove();
+            holder.style.width = `${Math.ceil(max)}px`;
         };
         if (document.fonts?.ready) {
             document.fonts.ready.then(setWidth);
         } else {
             setWidth();
         }
+        window.addEventListener('resize', setWidth);
 
         setInterval(() => {
             rotator.classList.add('swap-out');
@@ -336,6 +349,85 @@
             } else {
                 window.location.href = `mailto:${EMAIL}`;
             }
+        });
+    }
+
+    // ---------- Note form ----------
+    // Static host, so submissions relay through FormSubmit. If that
+    // request fails for any reason, hand the note off to the mail client
+    // rather than losing what the visitor typed.
+    const noteForm = document.getElementById('noteForm');
+    if (noteForm) {
+        const msgEl = document.getElementById('noteMsg');
+        const fromEl = document.getElementById('noteFrom');
+        const sendBtn = document.getElementById('noteSend');
+        const statusEl = document.getElementById('noteStatus');
+        const ENDPOINT = 'https://formsubmit.co/ajax/asish.nelapati@gmail.com';
+
+        const setStatus = (text, kind) => {
+            statusEl.textContent = text;
+            statusEl.className = `note-status${kind ? ' ' + kind : ''}`;
+        };
+
+        const mailtoFallback = (message, from) => {
+            const body = encodeURIComponent(`${message}\n\n— ${from}`);
+            window.location.href =
+                `mailto:asish.nelapati@gmail.com?subject=${
+                    encodeURIComponent('Note from your portfolio')}&body=${body}`;
+        };
+
+        noteForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const message = msgEl.value.trim();
+            const from = fromEl.value.trim();
+
+            msgEl.classList.toggle('invalid', !message);
+            fromEl.classList.toggle('invalid', !fromEl.checkValidity() || !from);
+
+            if (!message) {
+                setStatus('Add a note first.', 'err');
+                msgEl.focus();
+                return;
+            }
+            if (!from || !fromEl.checkValidity()) {
+                setStatus('Need a valid email so I can reply.', 'err');
+                fromEl.focus();
+                return;
+            }
+            if (noteForm.querySelector('[name="_honey"]').value) return; // bot
+
+            sendBtn.disabled = true;
+            setStatus('Sending…');
+
+            try {
+                const res = await fetch(ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: from,
+                        message,
+                        _subject: 'Note from your portfolio',
+                    }),
+                });
+                if (!res.ok) throw new Error(res.status);
+                noteForm.reset();
+                setStatus('Sent — thanks, I\'ll get back to you soon.', 'ok');
+            } catch {
+                setStatus('Couldn\'t send from here — opening your mail app…', 'err');
+                mailtoFallback(message, from);
+            } finally {
+                sendBtn.disabled = false;
+            }
+        });
+
+        [msgEl, fromEl].forEach((el) => {
+            el.addEventListener('input', () => {
+                el.classList.remove('invalid');
+                if (statusEl.classList.contains('err')) setStatus('');
+            });
         });
     }
 

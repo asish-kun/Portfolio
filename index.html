@@ -507,10 +507,25 @@
             <p class="contact-line" data-reveal>
                 Open to interesting problems, good coffee, and better food recommendations.
             </p>
+            <form class="note-form panel" id="noteForm" data-reveal novalidate>
+                <p class="note-label"><span class="accent">//</span> Send a quick note</p>
+                <textarea id="noteMsg" name="message" rows="4" required
+                    placeholder="An idea, a role, a good poke spot — anything."
+                    aria-label="Your message"></textarea>
+                <div class="note-row">
+                    <input type="email" id="noteFrom" name="email" required
+                        placeholder="your@email.com — so I can reply" aria-label="Your email" />
+                    <button type="submit" class="btn btn--solid" data-hover id="noteSend">Send</button>
+                </div>
+                <input type="text" name="_honey" class="note-honey" tabindex="-1" autocomplete="off"
+                    aria-hidden="true" />
+                <p class="note-status" id="noteStatus" role="status" aria-live="polite"></p>
+            </form>
+
             <div class="contact-ctas" data-reveal>
-                <a href="mailto:asish.nelapati@gmail.com" class="btn btn--solid btn--big" id="emailBtn"
+                <p class="contact-hint">Prefer email? Click to copy —</p>
+                <a href="mailto:asish.nelapati@gmail.com" class="btn btn--ghost" id="emailBtn"
                     data-hover data-magnetic><span id="emailBtnText">asish.nelapati@gmail.com</span></a>
-                <p class="contact-hint">Click to copy</p>
             </div>
             <div class="contact-socials" data-reveal>
                 <a href="https://www.linkedin.com/in/asish-nelapati/" target="_blank" rel="noopener"
